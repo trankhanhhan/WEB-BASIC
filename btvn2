@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jason Portfolio</title>
+    <script src="https://kit.fontawesome.com/1538a9e36b.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            padding: 0; /* Đã sửa chính tả */
+            margin: 0;
+            font-family: "Montserrat", sans-serif; /* Đã sửa chính tả */
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1280px;
+            width: 100%;
+            margin-inline: auto; /* Dùng auto để căn giữa container ra giữa màn hình */
+            padding-inline: 24px;
+        }
+
+        /* Tạo hàng ngang cho Header */
+        .header {
+            display: flex;
+            justify-content: space-between; /* Đẩy logo sang trái, icon sang phải */
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .j-icon {
+            background: black;
+            color: white;
+            padding: 4px 11px;
+            margin-right: 5px;
+            font-weight: bold;
+        }
+
+        .right-icon {
+            color: red;
+            font-size: 1.2rem;
+        }
+
+        .right-icon i {
+            margin-left: 15px;
+        }
+
+        /* Phần thân chia đôi: Ảnh trái, Chữ phải */
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            padding: 40px 0;
+        }
+
+        .hero-img {
+            width: 400px; /* Chỉnh kích thước ảnh ở đây */
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 15px 0;
+            text-transform: uppercase;
+        }
+
+        .stats {
+            display: flex;
+            gap: 30px;
+            color: red;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .stats span {
+            display: block;
+            color: gray;
+            font-size: 0.8rem;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <span class="j-icon">J</span>
+                <span>JASON STROFF</span>
+            </div>
+            <div class="right-icon">
+                <i class="fa-brands fa-github"></i>
+                <i class="fa-brands fa-stack-overflow"></i>
+                <i class="fa-brands fa-linkedin"></i>
+            </div>
+        </div>
+
+        <div class="hero">
+            <img class="hero-img" src="https://lh3.googleusercontent.com/drive-storage/AJQWtBOXgr30pmt1gbERp6wVGiewYmH23XMqqCdpT-bXACC3-KhEbH9M9iIsjG8UAqrKS3CTbXmZ-GLha2Fn7HMevZ8AgZYB2BSC7yMyGs2x_jzV_2j2KA=w1920-h897?auditContext=forDisplay" alt="Jason Profile">
+            
+            <div class="hero-content">
+                <p style="color: gray; letter-spacing: 2px;">HI THERE</p>
+                <h1>jason stroff <br>UI/UX DESIGNER + <br>DEVELOPER based in <br>Florida.</h1>
+                
+                <div class="stats">
+                    <div>6+ <span>Experience</span></div>
+                    <div>89 <span>Projects</span></div>
+                    <div>52 <span>Happy Clients</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

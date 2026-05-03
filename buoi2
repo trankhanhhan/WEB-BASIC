@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+
+        width: 200px;
+        height: 200px;
+
+
+    </title>
+</head>
+<body>
+    <!--một số thẻ block-->
+    <!--h1->h6: p, ul, li, ol, table,...-->
+    <!--một số thẻ inline-->
+    <!-- a, b, i, u, br, spam,..-->
+
+    <spam class="contentner">
+
+    </spam>
+
+
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    
+    
+</body>
+</html>
