@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/1538a9e36b.js" crossorigin="anonymous"></script>
+    <style>
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .container{
+        display:flex;
+        width:900px;
+        flex-direction: column;
+        margin-inline: 24px;
+        justify-content: space-between;
+    }
+    .header {
+        width: 100%;
+        display: flex; 
+        justify-content: space-between;
+        align-items: center; 
+        margin-bottom: 30px;
+    }
+    .left {
+        display: flex;
+        align-items: center;
+    }
+    .j-icon {
+        background: black;
+        color: white;
+        padding: 4px 11px;
+        margin-right: 5px;
+        border-radius: 3px;
+    }
+    .right-icon {
+        display:flex;
+        color:red;
+        font-size: 1rem;
+    }
+    .content {
+        display: flex;
+        gap: 50px; 
+        align-items: flex-start;
+        margin-bottom: 40px;
+    }
+   
+    .image {
+        width: 400px;
+        height: 410px;
+    }
+    .cover{
+        object-fit: cover;
+    }
+    .parent + p {
+        font-size: 0.8rem;
+        color: gray;
+    }
+    .table {
+        display: flex;
+        gap: 30px;
+        margin-top: 30px;
+    }
+    .items h2{
+        color:red;
+        margin-bottom: 5px;
+    }
+    .items p {
+        color: gray;
+        
+    }
+    .about {
+       margin-top: 10px;
+       margin-bottom: 30px;
+     }
+    .about h3 {
+        display: inline-block;   
+        border-bottom: 3px solid red; 
+        padding-bottom: 5px;   
+        margin-bottom: 15px;
+    }
+    .about p {
+        color:gray;
+        margin-bottom: 5px;
+    }
+    
+    .download {
+        display: block;
+        border: 1px solid red;
+        padding: 5px 15px;
+        border-radius: 25px;
+        color:red;
+        font-size: 12px;
+        width: fit-content;
+        margin: 40px auto;
+    }
+    .first {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+        margin-top: 40px;
+    }
+
+    .column {
+    flex: 1;
+    }
+    .skills {
+    display: inline-block;
+    border-bottom: 2px solid red;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    }
+    .tag {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    }
+    .tag span {
+    border: 1px solid #ccc;
+    padding: 5px 15px;
+    border-radius: 20px;
+    }
+    .exp {
+    display: inline-block;
+    border-bottom: 2px solid red;
+    width:fit-content;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="left">
+                <span class="j-icon">J</span>
+                <span>JASON STROFF</span>
+            </div>
+            <div class="right-icon">
+            <i class="fa-brands fa-github"></i>
+            <i class="fa-brands fa-stack-overflow"></i>
+            <i class="fa-brands fa-linkedin"></i>
+            </div>
+        </div>
+        <div class="content">
+            <img class="image cover" src="https://lh3.googleusercontent.com/drive-storage/AJQWtBMuZ_um16uJZU9Z57-kHev1zPzLbmsxLbyzSnmJntE8kEGV5ilnPyOqnXqCwzu-coUkStyvluQqmnLzozcXadTE7xf_WP9HcdblTch0zNBrqh2j=w1897-h897?auditContext=forDisplay" alt="image">
+            <div class="parent">
+                <p>HI THERE</p>
+                <br>
+                <h1>I'm Jason Stroff <br>UI/UX DESIGNER + <br>DEVELOPER based in <br>Florida.</h1>
+                <div class="table">
+                    <div class="items">
+                        <h2>6+</h2>
+                        <p>Experience</p></div>
+                        
+                        <div class="items">
+                        <h2>89</h2>
+                        <p>Projects</p></div>
+                        
+                        <div class="items">
+                        <h2>52</h2>
+                        <p>Happy Clients</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="about">
+            <h3>ABOUT ME</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum ante a porta blandit. Quisque velit tortor,</p>
+            <p>ultricies in quam ut, luctus convallis metus. Nunc vitae felis rutrum, mattis justo quis, bibendum tellus. Integer</p>
+            <p>bibendum eget dolor nec venenatis. Aliquam erat volutpat. Etiam et est vitae turpis accumsan vulputate. Curabitur et</p>
+            <p>vehicula nisi, eu congue dolor. Vivamus nec hendrerit mi Nulla consequat tempor.</p>
+        </div>
+        <div class="download">
+            <p>DOWNLOAD RESUME</p>
+        </div>
+        <div class="first">
+            <div class="column">
+                <h3 class="skills">CORE SKILLS</h3>
+                <div class="tag">
+                    <span>JavaScript</span>
+                    <span>Node.js</span>
+                    <span>Express.js</span>
+                    <span>MongoDB</span>
+                    <span>Vue.js</span>
+                    <span>React</span>
+                    <span>Sequelize</span>
+                    <span>Github</span>
+                    <span>HTML</span>
+                </div>
+            </div>
+            <div class="column">
+                <h3 class="skills">OTHER SKILLS</h3>
+                <div class="tag">
+                    <span>Storyblok</span>
+                    <span>PWAs</span>
+                    <span>Responsive Web Design</span>
+                    <span>React</span>
+                    <span>Vuetify</span>
+                </div>
+            </div>   
+        </div>
+        <h3 class="exp">WORK - EXPERIENCE</h3>
+        <div class="first">
+            <div class="column">
+                <div class="experience-item">
+                <p>2019 - Present</p>
+                <h2>Matrix Media Inc</h2>
+                <h3>Full Stack developer</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis sem maximus, ornare metus ut, congue enim. Sed fermentum.</p>
+                <ul>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis sem maximuns ornare metus ut.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                </ul>
+                </div>
+            </div>
+            <div class="column">
+                <div class="experience-item">
+                <p>2018 - 2019</p>
+                <h2>Lexind</h2>
+                <h3>Senior app developer</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis sem maximus, ornare metus ut, congue enim. Sed fermentum.</p>
+                <ul>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis sem maximuns ornare metus ut.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis sem maximuns ornare metus ut.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+</body>
+</html>

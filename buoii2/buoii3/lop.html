@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* css selector */
+        .box1, .box2{   /* box 1 và box2 sẽ có định dạng giống nhau */
+            background-color: red;
+            width: 20px;
+            height: 20px;
+            visibility: hidden;
+            display: none;
+            opacity: 0.5;
+            margin: 10px;
+        }
+        .box3 {
+            width: 250px;
+            height: 200px;
+            padding: 20px;
+            border: 5px solid black;
+            box-sizing: content-box;
+            box-shadow: 10px 10px 10px red;
+            background-image: url("https://cdn11.dienmaycholon.vn/filewebdmclnew/public/userupload/files/Image%20FP_2024/anh-hoa-tulip-3.jpg");
+            background-repeat: no-repeat;  /* set 1 anh thoi*/
+            background-position: ;   /*center, left, right, right top, left top,... */
+
+        .box4 {
+            background-color: purple;
+            width: 250px;
+            height: 200px;
+            padding: 20px;
+            border: 5px solid black;
+            box-sizing: border-box;
+            margin: 10px;
+        
+        }
+
+        h1#id1 {
+            color:red;
+        }
+        /* lấy tất cả các thẻ p */
+        .parent p{
+            color:blue;
+        }
+        /* lấy tất cả các thẻ p bên trong class parent ( khong lấy gián tiếp)*/
+        .parent > p {
+            color:aqua;
+        }
+        /* lấy 1 thẻ liền kề thẻ parent*/
+        .parent + p{
+            color:beige;
+        }
+        /* lấy tất cả các thẻ liền kề cùng cấp */
+        .parent ~ p{
+            color:bisque;
+        }
+        .box{
+            width: 250px;
+            height: 200px;
+            border: 5px solid red;
+            margin: 10px;
+        }
+        .image{
+            width:100%;
+            height: 100%;
+        }
+        .fill {
+            object-fit: fill;
+        }
+        .contain{
+            object-fit: contain;
+
+        }
+        .cover{
+            object-fit: cover;
+        }
+        /* border sizing*/
+
+
+
+    </style>
+</head>
+<body>
+    <div class="box"><!-- tran ra lam mat form anh -->
+        <img class="image fill" src="https://file3.qdnd.vn/data/images/0/2023/05/03/vuhuyen/khanhphan.jpg?dpi=150&quality=100&w=870" alt="image">
+        </div>
+    <div class="box"> <!--dung theo khung anh*/-->
+        <img class="image contain" src="https://file3.qdnd.vn/data/images/0/2023/05/03/vuhuyen/khanhphan.jpg?dpi=150&quality=100&w=870" alt="image">
+        </div>
+    <div class=" box"> <!--can chinh phu hop*/-->
+        <img class=" image cover" src="https://file3.qdnd.vn/data/images/0/2023/05/03/vuhuyen/khanhphan.jpg?dpi=150&quality=100&w=870" alt="image">
+    </div>  
+         <div class="box2">
+         </div>
+         <div class="box1"></div>
+    <div class="box3">
+        heloo dello
+    </div>
+    <div class="box4">
+        dfhgidrgidtg
+    </div>
+    <h1>heading 1</h1>
+    <h1 id="id1">heading 2</h1>
+    <div class="parent">
+         <p> hello</p>
+         <div>
+            <p> foefgjgdrng</p>
+         </div>
+    </div>
+    <div>aaaaaa</div>
+    <p>helololo</p> 
+    <p>dgjfgdgh</p>   
+    <p>dhffghrhbr</p>
+</body>
+</html>
