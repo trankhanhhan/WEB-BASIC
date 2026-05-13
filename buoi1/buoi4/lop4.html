@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 200px;
+            height:50px;
+            background-color: pink;
+            margin:20px;
+        }
+        .box2{
+            width: 200px;
+            height:50px;
+            background-color: red;
+            margin:20px;
+        }
+
+        .static{
+            position:static;
+        }
+        /* thay đổi vị trí hình ảnh nhưng không thay đổi vị trí trên html */
+        .relative {
+            position:relative;
+            top:20px;
+            left:10px;
+        }
+        /*  sẽ cố định ở phía trên phần base, nằm lơ lửng không thuộc vào page */
+        .absolute {
+             position:absolute; /*sẽ ăn theo box cha gần nhất có position ( muốn cố định trong 1 thẻ div, 1 ptu nho,..) */
+            top:20px;
+            left:10px;
+        }
+        .fixed{
+             position:fixed;  /* ăn theo toàn bộ trang html ( muốn cố định trong toàn bộ trang web)*/
+            top:20px;
+            left:20px;
+        }
+        .button {
+            width:100px;
+            height:50px;
+            color:red;
+            text-align: center;
+            align-content: center;
+            border: 2px solid red;
+            border-radius: 10px;
+            margin-left: 250px;
+            transition:2s ;
+        }
+        button:hover{
+            background-color: red;
+            color:aliceblue;
+            transform:scale(1.5);/* phóng to thu nhỏ */
+            transform:translateX(100x);/* di chu lên xuống */
+
+
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+         <div class="box1">bõghrg</div>
+        <div class="box2">fgdrh</div>
+
+    </div>
+    <button>click</button>
+
+   
+    
+</body>
+</html>
