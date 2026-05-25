@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+      <!-- <button onclick="alert('hi')"> click me</button>       cách sd inline  -->
+      <!-- <script>
+        console.log("aaaaaaaaaaaaaa");
+     </script> -->
+
+    <script src="./style.js"> </script>
+
+    <div id="div1">aaaaaaa</div>  
+   
+    <div class="box1">aaaaaaaaaa</div>     
+    <div class="box1">bbbbb</div>
+    <div class="box1">cccccccc</div>
+    <div class="box2">44444444444</div>
+    <input class="box1">
+    <button>click me</button>
+    <script> // DOM
+    // trỏ đến  cái item ptu mà ta cần chỉnh
+        let title1 = document.getElementById("div1");  // chỉ lấy đc id  ( lôi thẻ ra)
+         box1 = document.querySelector(".box1");   // lấy được class và id lun  ( chỉn thuộc tính)   chỉnh cái đầu tiên
+         box1 = document.querySelectorAll(".box1");  // chỉnh ca mảng
+        let button = document.querySelector("button");
+        // chọn sự kiện, khi ấn vào button thì sẽ thực hiện hành động ni
+        button.addEventListener('click', function(){
+            alert(" chào mn");
+            let a = button.value;
+            console.log(a);
+        });
+        
+
+
+    // chèn đè lên 
+        title1.innerText = " hello";  // đè hello lên aaaaa *   ( ăn theo như text)
+        title1.innerHTML = "<b> hi <b>";                          // ăn theo như 1 thẻ html
+
+
+        box1.style.color = "red"; // thay đổi định dạng
+    </script>
+
+      <!-- var i =1= 1;     
+    //  let a = 2;
+    //  const = 5;  -->
+</body>
+</html>

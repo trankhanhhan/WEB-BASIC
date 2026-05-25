@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+        .container {
+            display:flex;
+            gap: 20px;
+        }
+        .nhap {
+            display:flex;
+            gap: 10px;
+            flex-direction: column;
+            width: 250px;
+        }
+        .boxkq {
+            margin-top: 50px;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+         }
+</style>
+<body>
+    <div class="container">
+        <div class="nhap">
+            <input class="rong" placeholder="vui long nhap chieu ngang(w)">
+            <input class="cao" placeholder="vui long nhap chieu doc(h)">
+            <input class="mau" placeholder="vui long nhap ma mau">
+        </div>
+        <button>submit</button>
+    </div>
+    <div class="boxkq"></div>
+    
+
+
+    <script> 
+        let inputRong = document.querySelector(".rong");
+        let inputCao = document.querySelector(".cao");
+        let inputMau = document.querySelector(".mau");
+
+        let boxkq = document.querySelector(".boxkq");
+
+        let button = document.querySelector("button");
+
+        
+        button.addEventListener('click', function() {
+            
+            let r = inputRong.value; 
+            let c = inputCao.value;
+            let m = inputMau.value;
+
+            console.log(r, c, m); 
+
+            boxkq.style.width = r + "px";
+            boxkq.style.height = c + "px";
+            boxkq.style.backgroundColor = m; 
+            
+        });
+
+        boxkq.addEventListener('click', function() {
+            
+            boxkq.style.width = "100px";
+            boxkq.style.height = "100px";
+            boxkq.style.backgroundColor = "red";
+
+            inputRong.value = "";
+            inputCao.value = "";
+            inputMau.value = ""; 
+        });
+        
+    </script>
+</body>
+</html>
