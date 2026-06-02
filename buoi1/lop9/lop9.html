@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .first {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 100px;
+        margin-top: 40px;
+    }
+
+    .column {
+        width:360px;
+    }
+    .skills {
+        display: inline-block;
+        border-bottom: 2px solid red;
+        padding-bottom: 5px;
+        margin-bottom: 20px;
+    }
+    .tag1, .tag2 {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 360px;
+    }
+    .tag1 span {
+        border: 1px solid #ccc;
+        padding: 5px 15px;
+        border-radius: 20px;
+    }
+    .tag2 span {
+        border: 1px solid #ccc;
+        padding: 5px 15px;
+        border-radius: 20px;
+    }
+    .add {
+        width: 460px;
+        margin-top: 60px;
+        display: flex;
+        gap: 30px;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="first">
+        <div class="container1">
+            <div class="column">
+                <h3 class="skills">CORE SKILLS</h3>
+                <div class="tag1">
+                    <span>JavaScript</span>
+                    <span>Node.js</span>
+                    <span>Express.js</span>
+                    <span>MongoDB</span>
+                    <span>Vue.js</span>
+                    <span>React</span>
+                    <span>Sequelize</span>
+                    <span>Github</span>
+                    <span>HTML</span>
+                </div>
+            </div>
+            <div class="add">
+                <input class="add1" placeholder="add skills">
+                <button class="button1">add</button>
+            </div>
+        </div>
+        <div class="container2">
+            <diV class="column">
+                <h3 class="skills">OTHER SKILLS</h3>
+                <div class="tag2">
+                    <span>Storyblok</span>
+                    <span>PWAs</span>
+                    <span>Responsive Web Design</span>
+                    <span>React</span>
+                    <span>Vuetify</span>
+                </div>
+            </diV> 
+            <div class="add">
+                 <input class="add2" placeholder="add skills">
+                <button class = "button2">add</button>
+            </div>
+
+        </div>    
+    </div>
+    <script>
+        let core = document.querySelector(".add1");
+        let other = document.querySelector(".add2");
+        let button1 = document.querySelector(".button1");
+        let button2 = document.querySelector(".button2");
+        let tag1Container = document.querySelector(".tag1");
+        let tag2Container = document.querySelector(".tag2");
+        
+
+        button1.addEventListener('click', function() {
+            let coreinput = core.value.trim();
+            tag1Container.innerHTML += `<span>${coreinput}</span>`;
+            core.value = ""; 
+        });
+
+        button2.addEventListener('click', function() {
+            let otherinput = other.value.trim();
+            tag2Container.innerHTML += `<span>${otherinput}</span>`;
+            other.value = "";
+        });
+        
+        
+            
+
+
+
+    
+
+
+        
+    
+    </script>
+</body>
+</html>
