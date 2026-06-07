@@ -36,6 +36,9 @@
         
 
 
+
+        // click, input, change, mouseover, keyout, mouseout
+
     // chèn đè lên 
         title1.innerText = " hello";  // đè hello lên aaaaa *   ( ăn theo như text)
         title1.innerHTML = "<b> hi <b>";                          // ăn theo như 1 thẻ html
@@ -47,5 +50,31 @@
       <!-- var i =1= 1;     
     //  let a = 2;
     //  const = 5;  -->
+
+    // lop9
+      <!-- click, input, change, mouseover, mouseout -->
+    <div>A</div>
+    <p>paragrap</p>
+    <div>B
+        <div>A-c</div>
+    </div>
+    <div>C</div>
+
+    <button id="myButton">Click me</button>
+    <script>
+        const button = document.getElementByid('myButton');
+        let div2 = document.querySelector('div:nth-child(2)');  //( lấy thẻ tại vị trí) lôi thẻ thứ 2 ra, check phải div không nếu phải thì gán thẻ nớ là div2, sai thì trả về null
+        let div3 = document.querySelector('div:nth-of-type(3)');  // ( kra toàn bộ thẻ coi cái nào là thẻ đó " ktr trc lấy sau") lấy thẻ div thứ 3 
+        div2.style.color = 'red';
+        console.log(div2);
+        div3.style.color = 'blue';
+        
+        // button.addventListener('click', function(){
+        //     alert('Button was clicked!');
+        // });
+
+
+        
+    </script>
 </body>
 </html>
