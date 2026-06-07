@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document
+    </title>
+    <style>
+        .div {
+            color: red;
+        }
+        .blue {
+            color: blue;
+        }
+        .button {
+            color: black;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div>thẻ 1</div>
+    <div>thẻ 2</div>
+    <div>thẻ 3</div>
+    <button> CLICK ME</button>
+    <script>
+        const divs= document.querySelectorAll("div");
+
+        const button = document.querySelector("button");
+        button.addEventListener("click", function() {
+            button.classList.toggle("dark");
+            document.body.classList.toggle("dark");
+        });
+        divs.forEach(
+            function(div) {
+            //     div.addEventListener("click", function() {
+            //         // them class blue vao the div
+            //         div.classList.add("blue");
+            //     });
+
+            //     div.addEventListener("click", function() {
+            //         // bỏ class blue vao the div
+            //         div.classList.remove("blue");
+            //     });
+
+                div.addEventListener("click", function() {
+                    // chuyen doi class blue tren the div
+                    div.classList.toggle("blue");
+                });
+            }
+        );    // đi qua từng ptu của mang divs. nhắm mắt đi khong có điểm đầu và cuối  (khong sai duoc continue và break)
+
+
+
+
+
+
+        
+    // <!-- <div>thẻ 1</div>
+    // <div>thẻ 2</div>
+    // <div>thẻ 3</div>
+    // <script>
+    //     const divs= document.querySelectorAll("div");
+    //     divs.forEach(div => {
+    //         div.addEventListener("click", function(){
+    //             divs.forEach(div => {
+    //                 div.classList.remove("blue");
+    //             });
+    //             div.classList.toggle("blue");
+    //         });
+    //     }); -->
+                
+        
+    </script>
+
+</body>
+</html>
