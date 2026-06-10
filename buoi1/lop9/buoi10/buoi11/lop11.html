@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 109px;
+        }
+        input{
+            width: 300px;
+            height: 30px;
+            margin: 20px 0 20px 20px;
+            font-size: 16px;
+            padding: 20px;
+            border-radius: 30px;
+        }
+        .search{
+            display: flex;
+            justify-content: center;
+        }
+        .pokemon_list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 340px;
+            height: 420px;
+            .image{
+                width: 100%;
+                height: 70%;
+                object-fit: cover;
+            }
+            .id{
+                width: 100%;
+                height: 10%;
+            }
+            .name{
+                width: 100%;
+                height: 10%;
+            }
+            
+            .type{
+                width: 100%;
+                height: 10%;
+            }
+        }
+    </style>
+</head>
+</head>
+<body>
+
+    <div class="header">
+        <h2>
+            POKEMON API
+        </h2>
+    </div>
+    <div class="search">
+        <input type="text" placeholder=" Nhập tên pokemon">
+    </div>
+    <div class="pokemon_list"></div>
+    
+
+<script src="./11.js"> </script>
+    
+        
+        // const data = fetch ("")
+        // console.log(data)
+ 
+
+        // const result = await promise.all([    // thay vì làm 1 cái thì làm 3 cai
+        //     fetch("")
+        //     fetch("")
+        //     fetch("")
+        // ])
+
+        // const login = ()=>{
+        //     return new Promise((resolve, reject)=>{
+        //         if (resolve){
+        //             resolve ("dang nhap thanh cong")
+        //         }
+        //         else {
+        //             reject("dang nhap that bai")
+        //         }
+        //     })
+        // }
+
+
+        // const promise = new Promise((resolve, reject)=>{
+        //     setTimeout(()=>{
+        //         resolve(" da hoan thanh ")
+        //     }, 1000)
+        // })
+        // promise
+        // .then((data)=>{     // su ly xong 1 cai promise thì 
+        //     console.log(data)
+        // })
+        // .catch((error)=>{
+        //     console.log(error)
+        // })
+
+        // login() //xu ly phan ni
+        // .then((user)=>{ // neu la cai ni
+        //     console.log("get user")  // thi tra về user ni
+        // })
+        // .then((post)=>{   // neu la cai ni
+        //     console.log("get post")  // thi tra ve cái ni
+        // })
+        // .catch((error)=>{
+        //     console.log(error)
+        // })
+
+        // async function login(){   // khai bao ham bat dong bo, nhờ trình duyệt chạy
+        //     try{
+        //         const user = await login()  // await: kq của login tra ve promise .chạy xong cai ni rồi mới chạy cái phía duoi
+        //         console.log("get user")
+
+        //         const post = await getpost(user.id)
+        //         console.log("get post")
+
+        //     }
+        //     catch(error){
+        //         console.log(error)
+        //     }
+        // }
+        //co 3 trang thai:  fulfilled, pending, rejected
+        
+
+
+
+
+
+
+
+
+        // function naucom (callback){ 
+        //     console.log("dang nau com")
+        //     callback()
+        // }
+        // naucom (      // cái callback của thằng nau com là ăn com
+        //     ()=>{ console.log("ăn com")}
+        // )
+        // // or
+        // function ancom(){
+        //     console.log("ăn com")
+        // }
+        // naucom(ancom)
+        // // nhược điểm là code khó đọc
+
+        // login(()=>{
+        //     console.log(" dang nhap thanh cong")
+        //     getuser(()=>{
+        //         console.log(" lay thong tin nguoi dung")
+        //         getpost(()=>{
+        //             console.log(" lay bai viet thanh cong")
+        //             getcomment(()=>{
+        //                 console.log(" lay binh luan ")
+        //             })
+        //         })
+        //     })
+        // })
+
+    
+
+        // console.log(1)
+        // console.log(2)
+        // setTimeout(()=> {
+        //     console.log("3")  // chạy 12, gặp 3 nhờ trình duyệt chạy dùm, chạy xún 4, sau 1s lấy lại kq của 3.
+        // }, 1000)         // lấy data, chờ reload, 
+        // console.log(4)
+        // console.log(5)
+        // // để lấy data dùng fetch 
+
+    
+   
+</body>
+</html>
