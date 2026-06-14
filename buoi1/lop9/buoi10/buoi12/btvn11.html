@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://kit.fontawesome.com/1538a9e36b.js" crossorigin="anonymous"></script>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <style>
     body{
         display: flex;
@@ -26,10 +30,11 @@
         align-items: center; 
         margin-bottom: 30px;
         background-color: white;
-        position: fixed;
         box-shadow: 0 2px 10px gray;
+        position: fixed;
         margin-left: -185px;
         margin-top: -10px;
+        z-index: 10;
     }
     .left {
         display: flex;
@@ -293,11 +298,12 @@
             </div>
         </div>
         <div class="content">
-            <img class="image" src="https://www.designstub.com/demos/defolio/assets/images/profile-image.jpg" alt="image">
+
+            <img class="image wow animate__animated animate__fadeInDown  " src="https://www.designstub.com/demos/defolio/assets/images/profile-image.jpg" alt="image">
             <div class="parent">
                 <p>HI THERE</p>
                 <br>
-                <h1>I'm Jason Stroff <br>UI/UX DESIGNER + DEVELOPER based in Florida.</h1>
+                <div class="name wow animate__animated animate__fadeInUp  "> <h1>I'm Jason Stroff <br>UI/UX DESIGNER + DEVELOPER based in Florida.</h1> </div>
                 <div class="table">
                     <div class="items">
                         <h2>6+</h2>
@@ -313,7 +319,7 @@
                 </div>
             </div>
         </div>
-        <div class="about">
+        <div class="about wow animate__animated animate__fadeInLeft ">
             <h3>ABOUT ME</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum ante a porta blandit. Quisque velit tortor,</p>
             <p>ultricies in quam ut, luctus convallis metus. Nunc vitae felis rutrum, mattis justo quis, bibendum tellus. Integer</p>
@@ -323,7 +329,7 @@
         <div class="download">
             <p>DOWNLOAD RESUME</p>
         </div>
-        <div class="first">
+        <div class="first wow animate__animated animate__fadeInRight ">
             <div class="column">
                 <h3 class="skills">CORE SKILLS</h3>
                 <div class="tag1">
@@ -349,8 +355,8 @@
                 </div>
             </div>   
         </div>
-        <h3 class="exp">WORK - EXPERIENCE</h3>
-        <div class="first">
+        <h3 class="exp wow animate__animated animate__fadeInUpBig">WORK - EXPERIENCE</h3>
+        <div class="first wow animate__animated animate__fadeInUpBig">
             <div class="column">
                 <div class="experience-item">
                 <p>2019 - Present</p>
@@ -382,8 +388,22 @@
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+    <script>
+               wow = new WOW(
+                      {
+                      boxClass:     'wow',      // default
+                      animateClass: 'animate__animated', // default
+                      offset:       0,          // default
+                      mobile:       true,       // default
+                      live:         true        // default
+                    }
+                    )
+                    wow.init();
+    </script> 
 
     
-    </script> 
+    
 </body>
 </html>
