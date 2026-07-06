@@ -684,6 +684,52 @@
             visibility: visible;
             transform: translateX(-50%) translateY(0);
         }
+                
+        .btn-material-floating {
+            position: fixed;
+            bottom: 30px;              
+            left: 50%;
+            transform: translateX(-50%) translateY(100px); 
+            background-color: #e8e8ed; 
+            border-radius: 50px;       
+            padding: 10px 16px 10px 28px; 
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            z-index: 999;              
+            cursor: pointer;
+            white-space: nowrap;       
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
+                        opacity 0.4s ease, 
+                        visibility 0.4s ease;
+        }
+
+        .btn-material-floating span {
+            font-size: 15px;
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+
+    
+        .btn-plus-blue {
+            width: 36px;
+            height: 36px;
+            background-color: #0066cc; 
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .btn-material-floating.show {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateX(-50%) translateY(0) !important;
+        }
         .box11 {
             display: flex;
             flex-direction: column;
@@ -2394,16 +2440,6 @@
             }
 
 
-            /* .large {
-                width: 100%;
-                min-height: 470px;
-                border-radius: 26px;
-                overflow: hidden;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-bottom: 22px;
-            } */
             .large img {
                 width: 100%;
                 object-fit: cover;
@@ -3197,6 +3233,12 @@
     <div class="box10">
         <img src="https://www.apple.com/vn/mac-mini/images/overview/performance/performance_hero_1__eq1k7v88xloy_large.jpg">
     </div>
+    <div class="btn-material-floating">
+        <span>Tìm hiểu sâu về vật liệu và thiết kế</span>
+        <div class="btn-plus-blue">
+            <i class="fa-solid fa-plus"></i>
+        </div>
+    </div>
     <div class="btn-chip-floating">
         <span>Khám phá M4 và M4 Pro</span>
         <div class="btn-plus-blue">
@@ -3761,38 +3803,27 @@
 
 
 
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 
-        <script>
-            $(document).ready(function(){
-                $('.slide').slick({
-                    dots: true,
-                    infinite: true,
-                    speed: 500,
-                    slidesToShow: 1,
-                    arrows: true
-                });
+    <script>
+    
+        $(document).ready(function(){
+            $('.slide').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                arrows: true
             });
 
-             $(document).ready(function(){
-                $('.container').slick({
-                    dots: true,
-                    infinite: true,
-                    speed: 500,
-                    slidesToShow: 1,
-                    arrows: true
-                });
-            });
-
-            wow = new WOW({
-                boxClass:     'wow',
-                animateClass: 'animate__animated',
-                offset:       0,
-                mobile:       true,
-                live:         true
+            $('.container').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                arrows: true
             });
 
             $('.box12-slide').slick({
@@ -3803,7 +3834,6 @@
                 arrows: true,
                 infinite: true,
                 speed: 500
-                
             });
 
             $('.box26-slide').slick({
@@ -3815,77 +3845,85 @@
                 speed: 500
             });
 
-
-            wow.init();
-            $(document).ready(function() {
-            
-
         
-                let materialBtn = document.querySelector('.btn-material-floating');
-                let chipBtn = document.querySelector('.btn-chip-floating');
-                
-                
-                let box4Section = document.querySelector('.box4');   
-                let box10Section = document.querySelector('.box10'); 
-                let box11Section = document.querySelector('.box11');
-                let box15Section = document.querySelector('.box15');
-
-                window.addEventListener('scroll', function() {
-                
-                    if (!box4Section || !box10Section || !box11Section || !box15Section) return;
-
-                    let startPoint = box4Section.offsetTop;
-                    let endPoint = box10Section.offsetTop;
-                    let pointBox11 = box11Section.offsetTop;
-                    let pointBox15 = box15Section.offsetTop;
-
-                    
-                    if (window.scrollY >= startPoint - 150 && window.scrollY < endPoint - 100) {
-                        materialBtn.classList.add('show');
-                    } else {
-                        materialBtn.classList.remove('show');
-                    }
-
-            
-                    if (window.scrollY >= pointBox11 - 100 && window.scrollY <= pointBox15 - 100) {
-                        chipBtn.classList.add('show');
-                    } else {
-                        chipBtn.classList.remove('show');
-                    }
-                });
-            })
-
-            let btnCompare = document.querySelector('.btn-compare');
-            let box28Wrap = document.querySelector('.box28-wrap');
-
-            window.addEventListener('scroll', function() {
-        
-                let dinhCuaKhoid = box28Wrap.offsetTop; 
-                
-                if (window.scrollY > dinhCuaKhoid - window.innerHeight + 300) {
-                    btnCompare.classList.add('show');
-                } else {
-                    btnCompare.classList.remove('show');
-                }
+            wow = new WOW({
+                boxClass:     'wow',
+                animateClass: 'animate__animated',
+                offset:       0,
+                mobile:       true,
+                live:         true
             });
-            
+            wow.init();
+        });
 
 
+        window.addEventListener('scroll', function() {
             let subNavbar = document.querySelector('.sub-navbar');
             let box2Target = document.querySelector('.box2'); 
 
-            window.addEventListener('scroll', function() {
+            if (subNavbar && box2Target) {
                 let triggerTop = box2Target.offsetTop;
-
                 if (window.scrollY >= triggerTop - 20) {
                     subNavbar.classList.add('sticky');
                 } else {
                     subNavbar.classList.remove('sticky');
                 }
-            });
-        </script>
+            }
+        });
+
+
+        window.addEventListener('scroll', function() {
+            let materialBtn = document.querySelector('.btn-material-floating');
+            let box4Section = document.querySelector('.box4');   
+            let box10Section = document.querySelector('.box10'); 
+
+            if (materialBtn && box4Section && box10Section) {
+                let startPoint = box4Section.offsetTop;
+                let endPoint = box10Section.offsetTop;
+                let currentScroll = window.scrollY;
 
     
+                if (currentScroll >= startPoint - 250 && currentScroll < endPoint - 100) {
+                    materialBtn.classList.add('show');
+                } else {
+                    materialBtn.classList.remove('show');
+                }
+            }
+        });
+        window.addEventListener('scroll', function() {
+            let chipBtn = document.querySelector('.btn-chip-floating');
+            let box11Section = document.querySelector('.box11');
+            let box15Section = document.querySelector('.box15');
+
+            if (chipBtn && box11Section && box15Section) {
+                let pointBox11 = box11Section.offsetTop;
+                let pointBox15 = box15Section.offsetTop;
+                let currentScroll = window.scrollY;
+
+                if (currentScroll >= pointBox11 - 100 && currentScroll <= pointBox15 - 100) {
+                    chipBtn.classList.add('show');
+                } else {
+                    chipBtn.classList.remove('show');
+                }
+            }
+        });
+
+       
+        window.addEventListener('scroll', function() {
+            let btnCompare = document.querySelector('.btn-compare');
+            let box28Wrap = document.querySelector('.box28-wrap');
+
+            if (btnCompare && box28Wrap) {
+                let dinhCuaKhoid = box28Wrap.offsetTop; 
+                if (window.scrollY > dinhCuaKhoid - window.innerHeight + 300) {
+                    btnCompare.classList.add('show');
+                } else {
+                    btnCompare.classList.remove('show');
+                }
+            }
+        });
+    </script>
+
         
 </body>
 </html>
