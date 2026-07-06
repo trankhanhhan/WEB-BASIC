@@ -37,18 +37,17 @@
         padding: 5px 15px;
         border-radius: 20px;
     }
-    .add {
-        width: 460px;
-        margin-top: 60px;
-        display: flex;
-        gap: 30px;
+    .add1, .add2 {
+        margin-top: 20px;
+        padding: 5px;
     }
+
+    
     
     </style>
 </head>
 <body>
     <div class="first">
-        <div class="container1">
             <div class="column">
                 <h3 class="skills">CORE SKILLS</h3>
                 <div class="tag1">
@@ -63,13 +62,10 @@
                     <span>HTML</span>
                 </div>
             </div>
-            <div class="add">
-                <input class="add1" placeholder="add skills">
-                <button class="button1">add</button>
-            </div>
-        </div>
-        <div class="container2">
-            <diV class="column">
+            <input class="add1" placeholder="add skills">
+            <button class="button1">add</button>
+            
+            <div class="column">
                 <h3 class="skills">OTHER SKILLS</h3>
                 <div class="tag2">
                     <span>Storyblok</span>
@@ -78,33 +74,31 @@
                     <span>React</span>
                     <span>Vuetify</span>
                 </div>
-            </diV> 
-            <div class="add">
-                 <input class="add2" placeholder="add skills">
-                <button class = "button2">add</button>
-            </div>
-
-        </div>    
-    </div>
+            </div> 
+            <button class = "button2">add</button>
+            <input class="add2" placeholder="add skills">
+        </div>
     <script>
         let core = document.querySelector(".add1");
         let other = document.querySelector(".add2");
-        let button1 = document.querySelector(".button1");
-        let button2 = document.querySelector(".button2");
+        let button1 = document.querySelector("button1");
+        let button2 = document.querySelector("button2");
         let tag1Container = document.querySelector(".tag1");
-        let tag2Container = document.querySelector(".tag2");
         
 
+      
+
         button1.addEventListener('click', function() {
-            let coreinput = core.value.trim();
-            tag1Container.innerHTML += `<span>${coreinput}</span>`;
-            core.value = ""; 
+            let coreinput = core.querySelector(".add1").value.trim();
+            core.innerHTML += `<span>${coreinput}</span>`;
+            
+
         });
 
         button2.addEventListener('click', function() {
-            let otherinput = other.value.trim();
-            tag2Container.innerHTML += `<span>${otherinput}</span>`;
-            other.value = "";
+            let otherinput = core.querySelector(".add2").value.trim();
+            other.innerHTML += `<span>${otherinput}</span>`;
+
         });
         
         

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOTSTRAP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- container fluid sẽ tràn màng hình 100% -->
+     <!-- container thì sẽ tự căn giữa không cần cài css -->
+    <div class="container-fluid">nội dung</div>  
+    <div class="container">nội dung</div>   
+
+    <!-- GRID
+    container => row => column-->
+     <div class="row">  <!--// mặc định là chia 12 cột tàng hình -->
+        <div class="col-4">hi</div>    <!--// cái này 4 cột -->
+        <div class="col-4">hello</div> <!-- // cái này 4 cột -->
+        <div class="col-4"> hiiii</div>  <!-- // cái này 4 cột -->
+    </div>
+
+    <!-- ULTILITY CLASSES
+    1. MARGIN
+    - mt-5: margin-top
+    - mb-5: margin-bottom
+    - ms-5: margin-start (left)
+    - me-5: margin-end (right) // tạo khỏng trống phía bên phaie
+    - mx-5: margin-x (margin left và right)
+    - my-5: margin-y (margin top và bottom)
+    - m-5: margin all  (tất cả các phía)
+    2. PADDING
+    - pt-5: padding-top
+    - pb-5: padding-bottom
+    - ps-5: padding-start (left)
+    - pe-5: padding-end (right) // tạo khỏng trống phía bên phaie
+    - px-5: padding-x (padding left và right)   
+    - py-5: padding-y (padding top và bottom)
+    - p-5: padding all  (tất cả các phía) -->
+
+    <div class="bg-primary text-white mt-3 p-5 text-center">demooo</div>
+
+    <div class="bg-secondary text-primary mt-5 p-3 text-start">demooo</div>
+
+
+
+
+     <!-- 3. TEXT ALIGNMENT ( CĂN VĂN BẢN)
+     - text-center: căn giữa
+     - text-start: căn trái
+     - text-end: căn phải
+     - fw-bold: chữ đậm
+     - fw-normal: chữ bình thường
+     - fw-light: chữ nhẹ
+     - fw-italic: chữ nghiêng
+     - fw-normal: chữ không nghiêng   
+     - text-decoration-underline: gạch chân
+     - text-decoration-line-through: gạch ngang 
+     - text-decoration-none: không gạch chân, không gạch ngang     
+    - 
+     - text-primary: màu xanh dương
+     - text-secondary: màu xám
+     - text-success: màu xanh lá cây
+     - text-danger: màu đỏ
+     - text-warning: màu vàng
+     - text-info: màu xanh da trời
+     - text-light: màu trắng
+     - text-dark: màu đen
+
+      4. BACKGROUND
+      - bg-primary: màu xanh dương
+      - bg-secondary: màu xám
+      - bg-success: màu xanh lá cây
+      - bg-danger: màu đỏ
+      - bg-warning: màu vàng
+      - bg-info: màu xanh da trời
+      - bg-light: màu trắng
+      - bg-dark: màu đen
+
+       5. DISPLAY
+       - d-block: hiển thị dưới dạng block (mỗi phần tử sẽ chiếm một dòng riêng)
+       - d-inline: hiển thị dưới dạng inline (các phần tử sẽ nằm trên cùng một dòng nếu có đủ chỗ)
+       - d-none : ẩn phần tử (không hiển thị trên trang)
+       - d-inline-block: hiển thị dưới dạng inline-block (cho phép phần tử nằm trên cùng một dòng nhưng vẫn có thể đặt kích thước)
+       - d-flex: hiển thị dưới dạng flexbox (cho phép sắp xếp phần tử theo hàng hoặc cột)
+       - d-grid: hiển thị dưới dạng grid (cho phép sắp xếp phần tử theo lưới)
+
+        6. FLEXBOX ALIGNMENT
+        - justify-content-start: căn lề trái trong flex container
+        - justify-content-center: căn giữa trong flex container
+        - justify-content-end: căn lề phải trong flex container
+        - justify-content-between: căn đều các phần tử trong flex container, phần tử đầu tiên sẽ căn lề trái và phần tử cuối cùng sẽ căn lề phải
+        - justify-content-around: căn đều các phần tử trong flex container, tạo khoảng cách đều giữa các phần tử
+        - justify-content-evenly: căn đều các phần tử trong flex container, tạo khoảng cách đều giữa các phần tử, bao gồm cả khoảng cách giữa phần tử đầu tiên và lề trái, cũng như phần tử cuối cùng và lề phải
+        - align-items-start: căn lề trên trong flex container
+        - align-items-center: căn giữa theo chiều dọc trong flex container
+        - align-items-end: căn lề dưới trong flex container
+        - align-items-stretch: kéo dài phần tử để lấp đầy chiều cao của flex container
+        - flex-wrap: wrap: cho phép các phần tử trong flex container tự động xuống dòng khi không đủ chỗ
+        - gap-3: tạo khoảng cách giữa các phần tử trong flex container (khoảng cách là 3 đơn vị của Bootstrap, tương đương với 1rem hoặc 16px)
+        - flex-row: sắp xếp phần tử theo hàng (mặc định)
+        - flex-column: sắp xếp phần tử theo cột
+        - flex-row-reverse: sắp xếp phần tử theo hàng nhưng ngược lại
+        - flex-column-reverse: sắp xếp phần tử theo cột nhưng ngược lại
+        - align-self-start: căn lề trên cho phần tử cụ thể trong flex container
+        - align-self-center: căn giữa theo chiều dọc cho phần tử cụ thể trong flex
+
+
+         7. BORDER
+         - border: thêm đường viền xung quanh phần tử
+         - border-top, border-bottom, border-start, border-end: thêm đường viền cho các cạnh cụ thể của phần tử
+
+          8. ROUNDED CORNERS (BOUNDS)
+          - rounded-0: không bo góc nào (góc vuông)
+          - rounded-1, rounded-2, rounded-3, rounded-4, rounded-5, rounded
+
+          9. BUTTON
+            - btn: lớp cơ bản cho tất cả các nút
+            - btn-primary: nút màu xanh dương
+            - btn-secondary: nút màu xám
+            - btn-success: nút màu xanh lá cây
+            - btn-danger: nút màu đỏ
+            - btn-warning: nút màu vàng
+            - btn-info: nút màu xanh da trời
+            - btn-light: nút màu trắng
+            - btn-dark: nút màu đen
+                - btn-outline-primary: nút viền màu xanh dương
+                - btn-outline-secondary: nút viền màu xám
+                - btn-outline-success: nút viền màu xanh lá cây
+                - btn-outline-danger: nút viền màu đỏ
+                - btn-outline-warning: nút viền màu vàng
+                - btn-outline-info: nút viền màu xanh da trời
+                - btn-outline-light: nút viền màu trắng
+                - btn-outline-dark: nút viền màu đen
+        10. breakpoint
+        - col-sm: ≥576px : kích thướt màng hình từ 576px trở lên
+        - col-md: ≥768px : kích thướt màng hình từ 768px trở lên
+        - col-lg: ≥992px : kích thướt màng hình từ 992px trở lên
+        - col-xl: ≥1200px : kích thướt màng hình từ 1200px trở lên
+
+    
+ -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 bg-primary text-white p-3 mt-5">cột 1</div>
+            <div class="col-12 col-sm-6 col-md-4 bg-secondary text-white p-3 mt-5">cột 2</div>
+            <div class="col-12 col-sm-6 col-md-4 bg-success text-white p-3 mt-5">cột 3</div>
+    </div>
+ <div class="d-flex justify-content-around align-items-center gap-3 mt-5 ">
+    <h2> S-GROUP</h2>
+    <h3> helllo</h3>
+    <button class="btn btn-success"> Đăng nhập</button>
+ </div>
+
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+</body>
+</html>
