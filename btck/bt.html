@@ -1,0 +1,4180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        html, body {
+            overflow-x: hidden;   
+            max-width: 100%;     
+        }
+
+        .header1{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:44px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:35px;
+            background-color: white;
+            z-index: 999;
+        
+        }
+        .menu{
+            display: flex;
+            position: static;
+            cursor:pointer;
+            transition:.3s;
+            color:#555;
+            white-space: nowrap;
+        }
+        .menu:hover{
+            color:black;
+        }
+       
+
+        .dropdown {
+            position: absolute;
+            top: 44px;  
+            left: -110px;             
+            width: 100%;
+            background: white;
+            margin-top: 0px;          
+            justify-content: center;
+            gap: 60px;
+            z-index: 999;
+            border-bottom: 1px solid #e5e5e7; 
+            display: flex;      
+            opacity: 0;               
+            visibility: hidden;        
+            transform: translateY(-10px);
+        
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.25s ease;
+        }
+
+     
+        .menu:hover .dropdown {
+            opacity: 1;               
+            visibility: visible;      
+            transform: translateY(0); 
+        }
+        .dropdown h4{
+            font-size:13px;
+            color:#888;
+            margin-bottom:20px;
+            font-weight:400;
+        }
+
+        .dropdown ul{
+            list-style:none;
+            margin-left: -40px;
+            gap: 5px;
+        }
+
+        .dropdown li{
+            margin-bottom:16px;
+            cursor:pointer;
+        }
+
+        .big li{
+            font-size:25px;
+            font-weight:550;
+            margin-bottom: 10px;
+            padding-right: 10px;
+        }
+
+        .small li{
+            font-size:15px;
+            font-weight:550;
+            margin-bottom: 10px;
+        
+        }
+
+
+        .sub-navbar {
+            position: absolute;
+            top: 44px; 
+            left: 0;
+            width: 100%;
+            height: 52px;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid #d2d2d7;
+            z-index: 998;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+      
+        .sub-navbar.sticky {
+            position: fixed !important;
+            top: 0 !important;
+            background-color: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+            animation: slideDownMenu 0.4s ease forwards;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+
+    
+        .sub-navbar-content {
+            width: 100%;
+            max-width: 1024px;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .sub-navbar-left a {
+            font-size: 21px;
+            font-weight: 600;
+            color: #1d1d1f;
+            text-decoration: none;
+        }
+
+        .sub-navbar-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .sub-navbar-right ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 24px; 
+        }
+
+        .sub-navbar-right ul li a {
+            font-size: 12px;
+            color: #1d1d1f;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .sub-navbar-right ul li a:hover {
+            color: black;
+            opacity: 1;
+        }
+
+    
+        .sub-navbar-right ul li.active a {
+            opacity: 0.5;
+            cursor: default;
+        }
+
+
+        .sub-navbar .btn-buy-mini {
+            font-size: 12px;
+            background-color: #0071e3;
+            color: white;
+            padding: 4px 11px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 400;
+        }
+    
+
+        .learnmore{
+            margin-top:44px;
+            height:52px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:8px;
+            background:white;
+            font-size:14px;
+        }
+        .learnmore p {
+            margin-top: 20px;
+        }
+
+        .learnmore a{
+            color:#0066cc;
+        }
+        .learnmore a :hover{
+            text-decoration:underline;
+        }
+
+        .box1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin:40px 0px 100px 0px;
+            flex-direction: column;
+        }
+        .box1 img {
+            width: 467px;
+            height: 422px;
+        }
+        .box1 h2 {
+            background: linear-gradient(135deg, #0055ff, #9933ff, #ff4477);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            font-weight: 700;
+            margin-top: 40px;
+        }
+        .button {
+            background-color: #0076df;
+            border-radius: 20px;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .box1 p {
+            font-weight: 650;
+            margin-top: 15px;
+        }
+
+        
+        .eye, .lag{
+            cursor:pointer;
+        }
+        .eye:hover, .lag:hover {
+            text-decoration: underline;
+        }
+        
+        .box2 {
+            display: flex;
+            justify-content:space-around;
+            align-items: center;
+            margin: 0px 0px 20px 0px;
+        
+        }
+        .box2 h1 {
+            font-size: 50px;
+            font-weight: 600;
+        
+        }
+        .box2 .noti {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 35px;
+            color:#6cbbe0;
+            margin-top: 15px; 
+            margin-left: 20px;
+        }
+        .slide {
+            width: 1090px;
+            max-width: 95%;
+            margin: 0 auto 60px auto;
+        }
+
+        .slide-item1, .slide-item2, .slide-item3 {
+            background-color: #f5f5f7;
+            border-radius: 30px;
+            padding: 0px;
+            box-sizing: border-box;
+            display: flex !important;
+            flex-direction: column;
+            align-items: flex-start;     
+            justify-content: flex-start;
+            outline: none;
+            
+        }
+
+        .slide-item1 .text {
+            font-size: 20px;
+            font-weight: 650;
+            color: #1d1d1f;
+            text-align: center;
+            max-width: 650px;
+            line-height: 1.4;
+            margin-bottom: 30px;
+            position: absolute;
+            top: auto;
+            bottom: 40px;
+            margin: 0px 0px 10px 150px;
+        }
+        .slide-item2 .text {
+            font-size: 25px;
+            font-weight: 650;
+            color: #1d1d1f;
+            text-align: left;
+            max-width: 650px;
+            line-height: 1.4;
+            margin-bottom: 30px;
+            position: absolute;
+            margin: 50px;
+
+        }
+        .slide-item3 .text {
+            font-size: 25px;
+            font-weight: 650;
+            color: #1d1d1f;
+            text-align: left;
+            max-width: 650px;
+            line-height: 1.4;
+            margin-bottom: 30px;
+            position: absolute;
+            margin:50px;
+            
+        }
+
+        .slide-item1 img, .slide-item2 img, .slide-item3 img {
+            width: 100%;
+            max-width: 1000px;  
+            object-fit: cover;
+            height: 650px;                   
+            display: block;
+        }
+        
+        .box3 h1 {
+            font-size: 50px;
+            font-weight: 600;
+            margin: 200px 90px 50px 25px;
+        }
+
+       
+        .container {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .row {
+            
+            margin-bottom: 24px; 
+        }
+
+      
+        .large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            border-radius: 20px;
+        }
+        .small img {
+            object-fit: cover; 
+            border-radius: 20px;
+        }
+        .large {
+            height: 520px;
+            
+        }
+        .small {
+            height: 360px;
+        }
+        .box4 {
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1160px;
+            text-align: center;      
+            padding: 0 20px;
+            margin:60px auto;
+
+        }
+        .box4 p {
+            font-size: 19px;
+            font-weight: 650;
+            color: #1d1d1f;
+            margin-bottom: 20px;
+        }
+
+        .box4 h1 {
+            font-size: 60px;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 32px;
+        }
+    
+        .box4 .int {
+            background: linear-gradient(135deg, #2b8490, #006070);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .box4 .para {
+            font-size: 15px;
+            font-weight: 500;
+            color: black;
+            max-width: 680px;          
+            margin: 0 auto;       
+            width: 525px;     
+        }
+
+    
+        .static-media-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+            gap: 12px;              
+            margin: 80px 0px -130px 0px; 
+            width: 100%;
+        }
+        .static-media-controls .control-btn-play {
+            width: 44px;
+            height: 44px;
+            background-color: #e8e8ed;  
+            border-radius: 50%;        
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .static-media-controls .control-btn-play i {
+            font-size: 14px;
+            color: #1d1d1f;            
+            margin-left: 3px;         
+        }
+        .static-media-controls .control-btn-play:hover {
+            background-color: #d2d2d7;  
+        }
+
+
+        .static-media-controls .control-navbar-dots {
+            height: 44px;
+            background-color: #e8e8ed;  
+            border-radius: 50px;       
+            padding: 0 24px;           
+            display: flex;
+            align-items: center;
+            gap: 12px;                 
+        }
+        .static-media-controls .control-navbar-dots .dot-dash {
+            width: 36px;
+            height: 6px;
+            background-color: #6e6e73;  
+            border-radius: 10px;       
+            cursor: pointer;
+        }
+        .static-media-controls .control-navbar-dots .dot-circle {
+            width: 6px;
+            height: 6px;
+            background-color: #86868b;  
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .box5 {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            left: 140px;
+            right: 0;
+            margin: 3px auto 0;
+            width: 300px;
+            height: 300px;
+        }
+        
+
+        .left {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            font-size: 60px;
+            font-weight: 700;
+            color: #6e6e73;
+        }
+
+        .bottom {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 60px;
+            font-weight: 700;
+            color: #6e6e73;
+        
+        
+        }
+        .box5 img {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+        }
+        .box5-text {
+            max-width: 400px;
+        }
+
+        .box5-text h2 {
+            font-size: 30px;
+            font-weight: 700;
+            color: black;
+            width: 280px;
+           
+            margin-bottom: 20px;
+        }
+
+        .box5-text h2 span {
+            color: #2b8490;
+        }
+
+        .box5-text p {
+            font-size: 15px;
+            color: #6e6e73;
+            line-height: 1.6;
+        }
+        .box6 {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 90px auto;
+            padding: 0 20px;
+            width: 100%;
+            max-width: 380px;
+   
+        }
+        .box6 img {
+            width: 380px;
+            height: 150px;
+        }
+        .box6 h2 {
+            font-size: 35px;
+            font-weight: 700;
+            color: black;
+            text-align: left;
+            align-self: flex-start;
+            max-width: 380px;
+            margin: 0 auto 0 0;
+        }
+        .box6 p {
+            font-size: 15px;
+            color: gray; 
+            text-align: left;
+            font-weight: 700;
+            margin: 20px;
+        }
+        .box7 {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 90px auto;
+            padding: 0 20px;
+            width: 100%;
+            max-width: 380px;
+   
+        }
+        .box7 img {
+            width: 380px;
+            height: 150px;
+        }
+        .box7 {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 90px auto;
+            padding: 0 20px;
+            width: 100%;
+            max-width: 380px;
+        }
+        .box7 img {
+            width: 380px;
+            height: 150px;
+        }
+        .box7 h2 {
+            font-size: 35px;
+            font-weight: 700;
+            color: black;
+            text-align: left;
+            align-self: flex-start;
+            max-width: 380px;
+            margin: 0 auto 0 0;
+        }
+        .box7 p {
+            font-size: 15px;
+            color: gray; 
+            text-align: left;
+            font-weight: 700;
+            margin: 20px;
+        }
+        .box8 {
+            display: flex;
+            flex-direction: column;
+            margin: 90px auto;
+            padding: 0 15px;
+            width: 100%;
+            
+        }
+        .box8 h1 {
+            font-size: 45px;
+            font-weight: 700;
+            color: black;
+          
+        }
+        .box8 h1 span {
+            color: #2b8490;
+        }
+        .box8 p {
+            font-size: 17px;
+            color: black; 
+            text-align: left;
+            font-weight: 600;
+            margin: 20px 0px;
+            width: 640px;
+        }
+        .box9 {
+            margin: 90px auto;
+            width: 1100px;
+            height: 700px;
+        
+        }
+        .box9 img {
+            width: 90%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 30px;
+            margin-left: 30px;
+        }
+        .box10 img {
+            width: 100%;
+        }
+        .btn-chip-floating {
+            position: fixed;
+            bottom: 30px;            
+            left: 50%;
+            transform: translateX(-50%) translateY(100px); 
+            background-color: #e8e8ed; 
+            border-radius: 50px;
+            padding: 10px 16px 10px 28px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            z-index: 999;
+            cursor: pointer;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
+                        opacity 0.4s ease, 
+                        visibility 0.4s ease,
+                        background-color 0.2s;
+        }
+
+        .btn-chip-floating span {
+            font-size: 15px;
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+        .btn-chip-floating:hover {
+            background-color: #d2d2d7;
+        }
+        .btn-chip-floating:hover .btn-plus-blue {
+            background-color: #0077ed;
+        }
+        .btn-chip-floating.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+                
+        .btn-material-floating {
+            position: fixed;
+            bottom: 30px;              
+            left: 50%;
+            transform: translateX(-50%) translateY(100px); 
+            background-color: #e8e8ed; 
+            border-radius: 50px;       
+            padding: 10px 16px 10px 28px; 
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            z-index: 999;              
+            cursor: pointer;
+            white-space: nowrap;       
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
+                        opacity 0.4s ease, 
+                        visibility 0.4s ease;
+        }
+
+        .btn-material-floating span {
+            font-size: 15px;
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+
+    
+        .btn-plus-blue {
+            width: 36px;
+            height: 36px;
+            background-color: #0066cc; 
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .btn-material-floating.show {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateX(-50%) translateY(0) !important;
+        }
+        .box11 {
+            display: flex;
+            flex-direction: column;
+            margin: 100px 280px;
+            padding: 0 20px;
+            width: 100%;
+        }
+        .box11 h5 {
+            font-weight: 700;
+        }
+        .box11 h1 {
+            font-weight: 700;
+            font-size: 70px;
+        }
+        .box11 h1 span {
+            color: #5b2be5;
+        }
+         .box12-slide {
+            
+            width: 100%;
+            margin: 10px 0px;
+        }
+
+        .box12-slide img {
+            width: 500px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 20px;
+            padding: 0px 5px;
+        }
+        .item {
+            position: relative;
+        }
+        .item img:first-child {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .item img:last-child {
+            position: absolute;
+            top: 3%;
+            left: 2.5%;
+            width: 95%;
+            height: 69%;
+            object-fit: cover;
+        }
+        .box12-text {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color:gray;
+        }
+        .box13 {
+            margin: 100px 100px;
+            width: 920px;
+            font-weight: 650;
+            font-size: 20px;
+        }
+
+        .box14 {
+            display: flex;
+            flex-direction: row;      
+            justify-content: space-between;
+            gap: 30px;
+            margin: 100px 100px;
+            width: 920px;
+            
+        }
+
+        .box14 h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1d1d1f;
+            width: 300px;
+        }
+
+        .box14 h3 span {
+            color: #5b2be5;
+        }
+        .box15 {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            gap: 25px;
+            justify-content: center;
+        }
+        .box15 img {
+            width: 520px;
+            height: 590px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+        .tab-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #f5f0eb;
+            border-radius: 50px;
+            padding: 8px 12px;
+            width: fit-content;
+            margin: 40px auto;
+        }
+        .tab {
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+            color: gray;
+        }
+        .tab:hover {
+            color: black;
+        }
+        .tab.active {
+            background-color: black;
+            color: white;
+            font-weight: 700;
+        }
+        .box16 {
+            width: 100%;
+            max-width: 770px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* 🌟 CSS ẨN CÁC NỘI DUNG CHƯA ĐƯỢC CHỌN */
+        .tab-img-content, .tab-text-content {
+            display: none;
+        }
+        
+        /* HIỆN ĐỒNG BỘ ẢNH VÀ CHỮ KHI ĐƯỢC KÍCH HOẠT */
+        .tab-img-content.active, .tab-text-content.active {
+            display: block !important;
+            animation: appleFadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes appleFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .box17 {
+            width: 100%;
+            margin-top: 150px;
+        }
+        .box17 img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .box18 {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            gap: 80px;
+            padding: 0px 100px;
+            background-color: #cfd8e3;
+            height: 600px;
+            
+        }
+
+        .box18 .box18-left h5 {
+            font-size: 21px;
+            font-weight: 700;
+            margin: 100px 0px 20px 0px;
+        }
+
+        .box18 .box18-left h1 {
+            font-size: 64px;
+            font-weight: 800;
+            width:370px;
+        }
+
+        .box18 .box18-left h1 span {
+            color: #0066cc;            
+        }
+
+        .box18 .box18-right p {
+            font-size: 18px;
+            font-weight: 650;
+            margin: 95px 0px 20px 0px;
+            width:417px;
+           
+        }
+
+        .box18 .box18-right h5 {
+            font-size: 17px;
+            color: #0066cc;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .box18 .box18-right h5:hover {
+            text-decoration: underline;
+        }
+        .box19 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 80px 20px;
+            
+        }
+
+        .box19 h1 span {
+            display: inline-block;
+            background: linear-gradient(135deg, #0055ff, #9933ff, #ff4477);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .box19 h1 {
+            font-size: 67px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            margin-bottom: 30px;
+        }
+
+        .box19 p {
+            font-size: 20px;
+            max-width: 700px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .box19 h5 {
+            font-size: 17px;
+            color: #0066cc;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .box19 h5:hover {
+            text-decoration: underline;
+        }
+        .box20 {
+            position: relative;
+            width: 100%;
+            margin-left: 55px;
+        }
+        .box20 img {
+            border-radius: 40px;
+            width: 95%;
+            margin-left: -30px;
+        }
+        .box20 p {
+            position: absolute;      
+            font-weight: 600;
+            top: 30px;                
+            left: 15px;              
+            width: 40%;            
+            color: white;        
+            font-size: 17px;         
+            margin: 0;
+            width: 415px;
+        }
+        .box21 {
+            display:flex;
+            flex-direction: row;
+            gap: 20px;
+            width: 100%;
+            max-width: 1180px;         
+            margin: 40px auto;         
+            gap: 24px;                
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        .box21-l, .box21-r {
+                
+            position: relative;        
+            object-fit: cover;
+            border-radius: 40px;   
+        }
+        .box21-l img, .box21-r img {
+            width: 100%;            
+            height: 555px;
+            display: block;     
+            border-radius: 30px;    
+             box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);  
+        }
+
+        .box21-l p {
+            position: absolute;     
+            top: 40px;                 
+            left: 40px;                              
+            font-weight: 700;
+            font-size: 19px;
+            margin: 0;
+            text-align: start;
+        
+        }
+        .box21-r p {
+            position: absolute;      
+            top: 40px;              
+            left: 40px;                
+            right: 40px;          
+            color: #ffffff;            
+            font-size: 19px;
+            font-weight: 700;
+            margin: 0;
+            text-align: start;
+        }
+        
+        .box22 {
+            width: 100%;
+            max-width: 1160px;       
+            margin: 80px auto;      
+            text-align: center;        
+            padding: 0 20px;
+            box-sizing: border-box;
+            
+        }
+
+        .box22 img {
+            width: 70px;              
+            height: auto;
+            margin-bottom: 24px;     
+        }
+
+
+        .box22 h1 {
+            font-size: 48px;         
+            font-weight: 600;
+            margin: 0 auto 60px auto;
+            width: 950px;
+        }
+        .box22 h1 span {
+            background: linear-gradient(135deg, #0055ff, #9933ff, #ff4477);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        .box22-text {
+            display: flex;            
+            flex-direction: row;                
+            text-align: left;  
+            height: 300px;
+        }
+
+
+        .box22-text h5 {
+            font-size: 19px;           
+            font-weight: 600;          
+            margin: 0;
+            width: 393px;     
+            margin-left: 105px;            
+        }
+        .box23 {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-left: 125px;
+
+        }
+    
+        .box23 h4 {
+            font-size: 21px;       
+            font-weight: 700;
+
+        }
+
+
+        .box23 h1 {
+            font-size: 64px;         
+            font-weight: 700;
+        }
+
+
+        .box23 h1 span {
+        color: #f35a7b;
+        }
+        .box23 h5 {
+            font-weight: 600;
+            width: 585px;     
+        }
+        .box23-img img {
+            width: 95%;
+            margin: 50px 20px;
+            border-radius: 30px;
+        }
+        .box23-tab {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #f5f0eb;
+            border-radius: 50px;
+            padding: 8px 12px;
+            width: fit-content;
+            margin: 40px auto;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+            color: gray;
+        }
+        .tab:hover {
+            color: black;
+        }
+        .tab.active {
+            background-color: black;
+            color: white;
+            font-weight: 700;
+
+        }
+        .box23-text {
+            font-weight: 700px;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .iphone-img-pane, .iphone-text-pane {
+            display: none;
+        }
+        .iphone-img-pane.active, .iphone-text-pane.active {
+            display: block !important;
+            animation: appleFadeIn 0.4s ease-in-out;
+        }
+
+        .box24 {
+            position: relative;      
+            width: 100%;
+            margin-top: 400px;
+            
+        }
+        .box24 img {
+            margin-top: 20px;
+            width: 100%;
+            transform: scale(1.70);
+            height: auto;
+            display: block;
+        }
+
+        .box24-content {
+            position: absolute;       
+            bottom: 45px;             
+            left: 50%;               
+            transform: translateX(-50%);
+            width: 80%;                
+            text-align: center;   
+            bottom: -175px;  
+        }
+
+        .box24-content h5:nth-of-type(1) {
+            font-size: 19px;
+            font-weight: 600;  
+            margin: 0 0 12px 0;      
+        }
+
+
+        .box24-content h1 {
+            font-size: 64px;      
+            font-weight: 700;
+            margin: 0 0 24px 0;        
+
+        }
+
+
+        .box24-content h1 span {
+            color: green;
+
+        }
+
+
+        .box24-content p {
+            font-size: 19px;
+            font-weight: 500;
+            color: #1d1d1f;
+            line-height: 1.4;
+            max-width: 680px;       
+            margin: 0 auto 24px auto; 
+        }
+
+        .box24-content h5:nth-of-type(2) {
+            font-size: 17px;
+            color: #0066cc;           
+            font-weight: 500;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .box24-content h5:nth-of-type(2):hover {
+            text-decoration: underline; 
+        }
+        .box25 {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;    
+            padding: 60px 80px;
+            margin-top: 400px;
+        }
+
+        .box25 h1 {
+            font-size: 52px;
+            font-weight: 600;
+            width: 820px;
+        
+        }
+
+        .box25 p {
+            font-size: 17px;
+            color: #0066cc;
+            cursor: pointer;
+        }
+
+        .box25 p:hover {
+            text-decoration: underline;
+        }
+            
+        .box26-slide {
+            width: 90%;
+        
+            margin: 40px auto 80px auto;
+            padding-bottom: 80px; 
+        }
+
+        .card26 {
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px 35px 30px 35px;
+            margin: 0 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            min-height: 380px;
+            position: relative;
+            box-shadow: 0 0px 20px rgba(0,0,0,0.07);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            margin-bottom: 30px;
+        }
+
+        .card26 h2 {
+            font-size: 22px;
+            font-weight: 600;
+            width: 222px;
+            line-height: 1.3;
+        
+        }
+
+        .card26 p {
+            font-size: 14px;
+            color: #6e6e73;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .plus-btn {
+            width: 44px;
+            height: 44px;
+            background-color: #1d1d1f;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            margin-top: 30px;
+            align-self: flex-end;
+            transition: 0.3s;
+            position: absolute;    
+            bottom: 25px;         
+            right: 25px;     
+        }
+        .box26-slide .slick-prev,
+        .box26-slide .slick-next {
+            width: 40px;
+            height: 40px;
+            background-color: #e8e8ed;
+            border-radius: 50%;
+            z-index: 1;
+            top: 450px;
+            bottom: 0;
+            line-height: 44px;      
+            text-align: center;     
+        }
+
+        .box26-slide .slick-prev {
+            right: 60px;
+            left: auto;
+        }
+
+        .box26-slide .slick-next {
+            right: 8px;
+        }
+
+        .box26-slide .slick-prev:hover,
+        .box26-slide .slick-next:hover {
+            background-color: #d2d2d7;
+        }
+
+        .box26-slide .slick-prev:before {
+            content: "‹";
+            color: gray;
+            font-size: 40px;
+            opacity: 0.6;
+            line-height: 1;         
+            position: relative;
+            top: -5px;          
+        }
+
+        .box26-slide .slick-next:before {
+            content: "›";
+            color: gray;
+            font-size: 40px;
+            opacity: 0.6;
+            line-height: 1;
+            position: relative;
+            top: -4px;
+        }
+        .box27 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 100px 80px;
+
+        }
+
+        .box27 h1 {
+            font-size: 54px;
+            font-weight: 600;
+        }
+
+        .box27 p {
+            font-size: 17px;
+            color: #0066cc;
+            cursor: pointer;
+            margin-top: 36px;
+        }
+
+        .box27 p:hover {
+            text-decoration: underline;
+        }
+
+        .box28 {
+            display: flex;
+            justify-content: center;
+            padding: 20px 40px;
+            background-color: white;
+            border-radius: 20px;
+            margin: 40px 80px;
+            box-shadow: 0 0px 30px rgba(0, 0, 0, 0.06);
+            height: 1300px;
+            flex-wrap: wrap;
+
+        }
+
+
+        .box28-left,
+        .box28-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1;
+            padding: 60px;
+        }
+        .box28-right {
+            margin-top: 20px;
+        }
+
+
+        .box28-left img,
+        .box28-right img {
+            height: 200px;             
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+
+        .box28-left p:nth-of-type(1),
+        .box28-right p:nth-of-type(1) {
+            font-size: 12px;
+            color: #f56300;         
+            font-weight: 600;
+            margin: 0 0 8px 0;
+        }
+
+
+        .box28-left h5,
+        .box28-right h5 {
+            font-size: 30px;
+            font-weight: 600;
+            margin: 0 0 6px 0;
+        }
+        .box28-left p:nth-of-type(2),
+        .box28-right p:nth-of-type(2) {
+            font-size: 17px;
+            color: #1d1d1f;
+            font-weight: 550;
+            margin: 0 0 20px 0;
+        }
+
+
+        .box28-left p:nth-of-type(3),
+        .box28-right p:nth-of-type(3) {
+            font-size: 17px;
+            line-height: 1.4;
+            margin: -15px 0 10px 0;
+            max-width: 329px;
+            height: 60px;         
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .box28-left p:nth-of-type(4),
+        .box28-right p:nth-of-type(4) {
+            font-size: 16px;
+            line-height: 1.4;
+            margin: 0 0 20px 0;
+            max-width: 260px;
+            height: 40px;            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+
+        .box28-left p:nth-of-type(5) {
+            font-size: 14px;
+            margin: 0 0 10px 0;
+            height: 40px;              
+            display: flex;
+            align-items: center;
+        }
+
+        .box28-right button {
+            margin: 0 0 10px 0 !important;
+            font-size: 14px;
+            font-weight: 400;
+            transition: background 0.2s;
+        }
+        .box28-right button:hover {
+            background: #0077ed;
+        }
+
+
+        .box28-left a,
+        .box28-right a {
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .box28-left a:hover,
+        .box28-right a:hover {
+            text-decoration: underline;
+        }
+
+
+
+
+        .color-dots {
+            display: flex;          
+            flex-direction: row;  
+            align-items: center;
+            gap: 5px;
+            list-style: none;       
+            padding: 0;            
+            margin: 8px 0;
+        }
+
+        .color-dots li {
+            list-style: none;      
+        }
+
+        .color-dots .dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            border: 1px solid rgba(0,0,0,0.1);
+            display: block;        
+        }
+
+        .color-dots .dot-more {
+            font-size: 12px;
+            color: #6e6e73;
+            font-weight: 500;
+            display: block;
+        }
+        .box28-left .color-dots {
+            margin-right: 35px;
+        }
+
+            
+
+        .color-dots .dot.blue   { 
+            background: linear-gradient(90deg, #8ecae6 50%, #4a90c4 50%); 
+        }
+        .color-dots .dot.purple { 
+            background: linear-gradient(90deg, #c3b1e1 50%, #8b6db5 50%); 
+        }
+        .color-dots .dot.pink   { 
+            background: linear-gradient(90deg, #f4a7b9 50%, #d4607a 50%); 
+        }
+        .color-dots .dot.orange { 
+            background: linear-gradient(90deg, #f4b183 50%, #d4763a 50%); 
+            box-shadow:  0 3px 5px rgba(0,0,0,0.15);
+        }
+        .color-dots .dot.yellow { 
+            background: linear-gradient(90deg, #ffd966 50%, #d4a820 50%); 
+        }
+        .color-dots .dot.green  { 
+            background: linear-gradient(90deg, #a8d5a2 50%, #5a9e54 50%); 
+        }
+        .color-dots .dot.silver { 
+            background: #c0c0c0;
+        }
+
+        .box28-specs {
+            width: 100%;
+            max-width: 1160px;
+            margin-bottom: 230px;
+            padding: 0 40px;
+            box-sizing: border-box;
+
+        }
+
+        .spec-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;              
+            padding: 20px 0;          
+        }
+        .spec-row:first-child {
+            border-top: 1px solid #e3e4e5;
+        }
+
+        .spec-col-left,
+        .spec-col-right {
+            flex: 1;             
+            display: flex;
+            flex-direction: column;
+            align-items: center;       
+            text-align: center;       
+            justify-content: center;
+        }
+
+
+        .spec-col-left h2,
+        .spec-col-right h2 {
+            font-size: 35px;        
+            font-weight: 600;
+            margin: 0 0 12px 0;
+        }
+
+
+        .spec-col-left p,
+        .spec-col-right p {
+            font-size: 14px;
+            color: #495057;            
+            line-height: 1.43;
+            max-width: 340px;          
+            margin: 0;
+        }
+
+
+
+        .dash-icon {
+            font-size: 22px;
+            color: #1d1d1f;
+            font-weight: 550;
+        }
+
+
+        .chip-logo {
+            height: 56px;              
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+
+        .ai-logo {
+            height: 44px;            
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .sub-label {
+            font-size: 14px;
+            color: #6e6e73 ; 
+            margin-bottom: 4px ;
+        }
+        
+        .box28-wrap {
+            position: relative;    
+            padding-bottom: 70px; 
+        }
+        .btn-compare {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #e8e8ed;
+            border-radius: 50px;
+            padding: 12px 23px 12px 38px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            z-index: 100;
+            width: 340px;
+            position: sticky;
+            bottom: 30px;        
+            margin: 0 auto;           
+            opacity: 0;
+            transform: translateY(40px);
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+        .btn-compare.show {
+            opacity: 1;
+            transform: translateY(0); 
+        }
+        .btn-arrow {
+            width: 36px;
+            height: 36px;
+            background-color: #0066cc;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+    
+        .box29 {
+            width: 100%;
+            margin-left: 50px;    
+        }
+
+        
+        .box29 h1 {
+            font-size: 50px;        
+            font-weight: 550;
+            margin: 0 0 24px 0;      
+        }
+
+
+        .box29 p {
+            font-size: 17px;
+            color: #0066cc;           
+            font-weight: 400;
+            cursor: pointer;
+        }
+        .box29 p:hover {      
+            text-decoration: underline;
+        }
+
+        .box29-cards {
+            display: flex;
+            justify-content: center;
+            gap: 24px;                
+    
+            margin: 40px auto 20px auto;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+        .wrapper-limit-box29 {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+
+        
+        .env-card {
+            flex: 1;                   
+            border-radius: 28px;      
+            padding: 35px;
+            min-height: 320px;        
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;  
+            justify-content: flex-start;
+            position: relative;     
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+            box-shadow:  0 0px 30px rgba(0,0,0,0.15);
+        }
+        .env-card:hover {
+            transform: scale(1.03);
+        }
+
+    
+        .env-icon {
+            height: 48px;              
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 24px;       
+        }
+
+        
+        .card-text {
+            font-size: 28px;          
+            font-weight: 610;
+
+            margin: 0;
+        
+        }
+
+    
+        .highlight {
+            font-weight: 600;
+        }
+        .highlight.purple {
+            color: #8f7ae5;          
+        }
+        .highlight.orange {
+            color: #bf6a00;        
+        }
+        .highlight.cyan {
+            color: #00829b;         
+        }
+
+        .btn-plus {
+            position: absolute;
+            bottom: 25px;
+            right: 25px;
+            width: 36px;
+            height: 36px;
+            background-color: black;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+
+        }
+
+        .btn-plus span {
+            font-size: 22px;
+            font-weight: 400;
+            line-height: 1;
+            margin-bottom: 2px;   
+        }
+        .env-nav-buttons {
+            width: 100%;
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: flex-end; 
+            gap: 12px;
+            box-sizing: border-box;
+        }
+
+        .nav-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background-color: #d2d2d7; 
+            color: #1d1d1f;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: 700;
+            margin-top: 20px;
+
+        }
+        .nav-btn:hover:not(:disabled) {
+            background-color: #e8e8ed;
+        }
+        .nav-btn:disabled {
+            opacity: 0.4;
+        }
+        .box30 {
+            display: flex;
+            flex-direction: column;
+            margin: 100px;
+            width: 100%;
+
+
+        }
+        .box30-text {
+            font-size: 30px;
+        }
+
+                
+        .box30-values {
+            width: 100%;
+            margin: 100px auto;       
+            padding: 0 100px;
+        
+        }
+
+        
+        .values-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1d1d1f;
+
+            max-width: 800px;      
+            margin: 0 0 50px ;
+        }
+
+
+        .values-grid {
+            display: flex;
+            justify-content: center;
+            gap: 24px;                 
+            width: 100%;
+        }
+        .value-card {
+            flex: 1;             
+            background-color: white;  
+            border-radius: 30px;       
+            padding: 35px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            min-height: 420px;      
+
+            box-shadow: 0 0px 30px rgba(0, 0, 0, 0.1);
+        }
+
+    
+        .value-card:hover {
+            transform: scale(1.03);    
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); 
+        }
+
+        
+        .card-content-top {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;          
+        }
+
+    
+        .value-icon {
+            height: 42px;            
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 24px;    
+        }
+
+        .value-card h3 {
+            font-size: 26px;
+            font-weight: 600;
+            color: #1d1d1f;
+            line-height: 1.25;      
+            letter-spacing: -0.015em;
+            margin: 0 0 16px 0;
+            max-width: 290px;     
+        }
+
+        
+        .value-card p {
+            font-size: 14px;
+            color: #6e6e73;            
+            line-height: 1.45;
+            margin: 0 0 15px 0;
+        }
+        .value-link {
+            font-size: 14px;
+            color: #0066cc;      
+            text-decoration: none;   
+            font-weight: 500;
+            display: inline-block;
+            width: fit-content;
+            cursor: pointer;
+        }
+
+        .value-link:hover {
+            text-decoration: underline;
+        }
+        .env-nav-button {
+            width: 100%;
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: flex-end; 
+            gap: 12px;
+            box-sizing: border-box;
+            margin-top: -90px;
+        }
+
+        .mac {
+            width: 100%;
+            max-width: 1024px;     
+            margin: 80px 100px -450px;   
+
+        }
+        
+        .brand {
+            font-size: 60px;
+            font-weight: 620;
+
+            margin: 0 0 40px 0;
+
+        }
+
+            
+        .grid {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 0;   
+        }
+
+    
+        .directory {
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            margin-right: 50px;
+        }
+
+    
+        .top {
+            font-size: 14px;
+            color: #86868b;       
+            font-weight: 400;         
+            margin: -13px 0 7px 0;
+                
+        }
+
+        .directory ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            height: 410px;
+        }
+
+
+        .directory ul li {
+            margin-bottom: 0px;       
+            cursor: pointer;           
+            width: fit-content;        
+        }
+
+        .directory ul.large li {
+            font-size: 26px;
+            font-weight: 600;         
+            letter-spacing: -0.015em; 
+            margin-bottom: 10px;     
+        }
+        .directory ul.normal li,
+        .directory ul.link-small li {
+            font-size: 16px;
+            font-weight: 500;     
+            margin-bottom: 5px;
+                
+        }
+        .mac-legal-notes {
+            width: 100%;
+            max-width: 1024px;    
+            margin: 40px auto 60px auto;
+            padding: 0 40px;
+        
+            padding-bottom: 24px;
+        }
+    
+        .mac-legal-notes ul {
+            list-style: none;          
+            padding: 0;
+            margin: 0;
+        }
+        .mac-legal-notes ul li {
+            font-size: 12px;          
+            color: #86868b;          
+            line-height: 1.6;          
+            margin-bottom: 12px;   
+            text-align: justify;    
+        }
+        .mac-legal-notes .note-symbol {
+            color: #6e6e73;           
+            font-weight: 500;
+            margin-right: 2px;       
+        }
+    
+        .mac-legal-notes ul li a {
+            color: #515154;          
+            text-decoration: underline;
+        }
+        
+        .mac-legal-ol {
+            padding-left: 14px;   
+            margin: 0;
+        }
+
+        .mac-legal-ol li {
+            font-size: 12px;
+            color: #86868b;           
+            line-height: 1.6;
+            margin-bottom: 12px;
+            text-align: justify;       
+            letter-spacing: -0.01em;
+        }
+
+        .mac-legal-ol li a {
+            color: #515154;
+            text-decoration: underline;
+        }
+        .apple-main-footer {
+            width: 100%;
+            max-width: 1024px;         
+            margin: 0 auto;
+            padding: 0 40px 40px 40px; 
+           
+            
+        }
+
+        .footer-breadcrumb {
+            font-size: 12px;
+            color: #515154;
+            padding: 20px 0;
+            border-top: 1px solid #d2d2d7;
+        }
+        .footer-breadcrumb span {
+            color: #1d1d1f;
+            cursor: pointer;
+        }
+        .footer-breadcrumb span:hover {
+            text-decoration: underline;
+        } 
+        .footer-links-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+     
+        .footer-col {
+            flex: 1;              
+            display: flex;
+            flex-direction: column;
+        }
+
+       
+        .col-head {
+            font-size: 12px;
+            color: #1d1d1f;        
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.01em;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-col ul li {
+            font-size: 12px;
+            color: #515154;         
+            margin-bottom: 9px;      
+            cursor: pointer;
+            width: fit-content;
+        }
+        .footer-col ul li:hover {
+            color: #1d1d1f;       
+            text-decoration: underline;
+        }
+        .footer-contact {
+            font-size: 12px;
+            color: #86868b;
+            padding: 24px 0 16px 0;
+            border-bottom: 1px solid #d2d2d7; 
+            margin-top: 30px;
+            width: 100%;
+        }
+        .footer-contact a {
+            color: #0066cc;          
+            text-decoration: underline;
+        }
+        .footer-contact .phone {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between; 
+            padding-top: 20px;
+            width: 100%;
+            flex-direction: column;
+        }
+        
+        .copyright {
+            font-size: 12px;
+            color: #86868b;
+            gap: 634px;
+            display:flex;
+            flex-wrap: wrap;
+        }
+        .legal-links {
+            display: flex;
+            margin: -10px;
+        }
+        .legal-links a {
+            font-size: 12px;
+            color: #515154;
+            text-decoration: none;
+            padding: 0px 10px 0px 10px;
+            border-right: 2px solid #d2d2d7;
+        
+        }
+        .legal-links a:last-child {
+            border-right: none; 
+        }
+        .legal-links a:hover {
+            color: #1d1d1f;
+            text-decoration: underline;
+        }
+
+        .locale {
+            font-size: 12px;
+            color: #515154;
+            cursor: pointer;
+        }
+        .locale:hover {
+            color: #1d1d1f;
+            text-decoration: underline;
+        }
+        .footer {
+            background-color: rgb(245, 245, 247)
+        }
+
+        @media (max-width: 833px) {
+
+            
+            html, body {
+                overflow-x: hidden;
+                width: 100%;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            
+            .header1 {
+                width: 100%;
+                height: 48px;
+                gap: 500px;
+            
+            }
+            .header1 > .menu {
+                display: none; 
+            }
+            .header1 svg {
+                width: 51px;
+                height: 51px;
+                cursor: pointer;
+                transition: .25s;
+            }
+            .header1 svg:hover {
+                opacity: .7;
+            }
+
+            
+            .sub-navbar {
+                position: sticky;
+                top: 48px;
+                z-index: 999;
+                width: 100%;
+            
+                border-bottom: 1px solid #ececec;
+            }
+            .sub-navbar-content {
+                width: 100%;
+                height: 52px;
+                padding: 0 18px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                box-sizing: border-box;
+            }
+            .sub-navbar-left a {
+                font-size: 20px;
+                font-weight: 600;
+                color: #1d1d1f;
+            }
+            .sub-navbar-right {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+            }
+            .sub-navbar-right ul {
+                display: none; 
+            }
+            .btn-buy-mini {
+                padding: 5px 14px;
+                font-size: 12px;
+                border-radius: 999px;
+                background: #0071e3;
+                color: white;
+            }
+
+
+            .learnmore {
+                margin-top: 100px;
+                padding: 14px 24px;
+                text-align: center;
+            }
+            .learnmore p {
+                font-size: 13px;
+            
+                width: 100%;
+                max-width: 560px;
+            }
+            .learnmore a {
+                font-size: 13px;
+                margin-left: -80px;
+                white-space: nowrap;
+            }
+        
+            .box1 {
+                width: 100%;
+                margin: 0 auto;
+                padding: 55px 20px 75px; 
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                box-sizing: border-box;
+            }
+            .box1 h1 {
+                font-size: 22px;
+                font-weight: 600;
+                letter-spacing: -0.02em;
+                margin-bottom: 12px;
+            }
+            .box1 h2 {
+                width: 100%;
+                max-width: 700px;
+                font-size: 30px;
+                font-weight: 700;
+                margin: 18px auto 26px;
+            }
+            .box1 img {
+                width: 100%;
+                max-width: 620px; 
+                display: block;
+                margin: 25px auto 40px;
+                object-fit: contain;
+            }
+            .box1 .button {
+                min-width: 82px;
+                height: 42px;
+                padding: 0 22px;
+                border-radius: 980px;
+                font-size: 17px;
+                font-weight: 500;
+                margin-bottom: 18px;
+            }
+            .box1 p {
+                width: 100%;
+                max-width: 500px;
+                margin: 0 auto;
+                font-size: 19px;
+                font-weight: 400;
+                line-height: 1.45;
+                color: #1d1d1f;
+            }
+            .box1 h3 {
+                font-size: 22px;
+                font-weight: 600;
+                line-height: 1.3;
+                margin-top: 28px;
+            }
+
+            .box2 {
+                width: 100%;
+                max-width: 723px;
+                margin: 0 auto;
+                padding: 70px 10px 30px;
+                display: flex;
+            
+                align-items: flex-start;
+
+            }
+            .box2 h1 {
+                width: 100%;
+                font-size: 58px;
+            
+                font-weight: 700;
+                margin: 0 0 28px;
+            }
+            .noti {
+                width: 100%;
+                display: flex;
+            
+                gap: 18px;
+                align-items: center;
+            }
+            .eye, .lag {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 15px;
+                font-weight: 500;
+            }
+            .eye img, .lag img {
+                width: 18px;
+                height: 18px;
+            }
+
+            /* KHỐI SLIDER VUỐT NGANG */
+            .slide {
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 20px;
+                display: flex;
+                gap: 20px;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: none;
+                box-sizing: border-box;
+            }
+            .slide::-webkit-scrollbar {
+                display: none;
+            }
+            .slide-item1, .slide-item2, .slide-item3 {
+                flex: 0 0 590px; 
+                width: 590px;
+                border-radius: 32px;
+                overflow: hidden;
+                position: relative;
+                scroll-snap-align: center;
+                background: #000;
+            }
+            .slide img {
+                width: 100%;
+                height: 650px;
+                object-fit: cover;
+                display: block;
+            }
+            .slide .text {
+                position: absolute;
+                z-index: 20;
+            }
+            .slide-item1 .text { 
+                max-width: 550px; 
+                margin-left: 90px;
+                margin-bottom: -10px;
+            }
+            .slide-item2 .text { 
+                max-width: 470px; }
+            .slide-item3 .text { 
+                max-width: 480px; }
+
+            .static-media-controls {
+                margin-top: 38px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 12px;
+            }
+            .control-btn-play {
+                width: 46px;
+                height: 46px;
+                background: #ececec;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .control-btn-play i {
+                font-size: 15px;
+            }
+            .control-navbar-dots {
+                display: flex;
+                gap: 12px;
+            }
+            .dot-circle {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: #9b9b9b;
+            }
+            .dot-dash {
+                width: 34px;
+                height: 8px;
+                border-radius: 20px;
+                background: #d0d0d0;
+            }
+            .dot-dash.active {
+                background: #111;
+            }
+
+            .box3 {
+                width: 100%;
+                max-width: 760px;
+                margin: 0 auto;
+                padding: 150px 20px 38px;
+                box-sizing: border-box;
+            }
+            .box3 h1 {
+                margin: 0;
+                font-size: 48px;
+                font-weight: 700;
+                line-height: 1.05;
+                letter-spacing: -0.045em;
+                color: #1d1d1f;
+            }
+            .container {
+                width: 100%;
+                max-width: 760px;
+                margin: 0 auto;
+                padding: 0 20px;
+                box-sizing: border-box;
+            }
+            .container .row {
+                margin-left: 0;
+                margin-right: 0;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            .container .col-6, .container .col-12 {
+                padding-left: 11px;
+                padding-right: 11px;
+            }
+
+
+            .large img {
+                width: 100%;
+                object-fit: cover;
+            }
+
+
+            .container .row.d-flex {
+                display: flex !important;
+                flex-wrap: wrap;
+                gap: 18px;
+                margin-bottom: 22px;
+            }
+            .container .col-6 {
+                flex: 0 0 calc(50% - 9px);
+                max-width: calc(50% - 9px);
+            }
+            .small {
+                width: 100%;
+                height: 380px;
+                border-radius: 26px;
+                overflow: hidden;
+                display: flex;
+                position: relative;
+            }
+            .container .small img {
+                max-width: 100% !important;
+                height: auto !important;
+                margin: 0 !important;
+                left: auto !important;
+                right: auto !important;
+                top: auto !important;
+                bottom: auto !important;
+                transform: none !important;
+                object-fit: contain;
+                object-position: center;
+            }
+            .row:nth-child(2) .col-6:nth-child(1) img { width: 76% !important; }
+            .row:nth-child(2) .col-6:nth-child(2) img { width: 92% !important; }
+            .row:nth-child(3) .col-6:nth-child(1) img { width: 90% !important; }
+            .row:nth-child(3) .col-6:nth-child(2) img { width: 72% !important; }
+
+            .box4 {
+                width: 100%;
+                max-width: 760px;
+                margin: 0 auto;
+                padding: 100px 20px 70px;
+                box-sizing: border-box;
+            }
+            .box4 h1 { font-size: 50px; font-weight: 700; line-height: 1.05; letter-spacing: -0.045em; margin-bottom: 26px; }
+            .box4 h2 { font-size: 28px; line-height: 1.22; font-weight: 600; max-width: 640px; }
+            .box4 p { margin-top: 18px; font-size: 21px; line-height: 1.55; color: #6e6e73; max-width: 620px; }
+
+            .box5 {
+                width: 100%;
+                margin-left: 5px;
+                padding: 0 20px 20px;
+                margin-top: -90px;
+
+            }
+            .box5 img { width: 100%; border-radius: 32px; display: block; object-fit: cover; }
+            .box5 h2 {  
+                font-size: 22px; 
+                line-height: 1.18; 
+                font-weight: 600; 
+                margin-top: 20px;
+                width: 115px;
+                margin-left: 0px;
+            }
+            .box5 p { 
+                margin-top: 14px; 
+                font-size: 19px; 
+                line-height: 1.55; 
+                color: #6e6e73; 
+                margin-right: 125px;
+            }
+            .box6 .card {
+                background: #f5f5f7;
+                border-radius: 30px;
+                overflow: hidden;
+                padding: 30px;
+                min-height: 420px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+            .box6 .card img { width: 100%; 
+                margin-bottom: 28px; 
+            }
+            .box6 .card h3 { font-size: 28px; 
+                line-height: 1.2; 
+                font-weight: 600; 
+                margin-bottom: 14px; }
+            .box6 .card p { 
+                font-size: 18px; 
+                line-height: 1.6; 
+                color: #6e6e73; }
+
+
+            .box7 h2 { 
+                font-size: 40px; 
+                line-height: 1.22; 
+                font-weight: 650; 
+                margin-bottom: 18px;
+                max-width: 620px; }
+            .box7 p { 
+                font-size: 20px; 
+            }
+
+            .box8 { 
+                width: 100%; 
+                max-width: 760px; 
+                margin: 0 auto; 
+                padding: 0 20px 80px; 
+            }
+            .box8 p { 
+                font-size: 20px; 
+                width: 553px;
+            }
+            .box11 {
+                margin-left: 50px;
+            }
+
+            .box13 { 
+                
+                max-width: 760px; 
+                margin: 0 auto; 
+                padding: 0 20px 80px; 
+            }
+            .box13 p { 
+                font-size: 18px;  
+                width: 541px;
+            }
+
+            .box14 { 
+                width: 100%; 
+                max-width: 760px; 
+                margin: 0 auto; 
+                padding: 0 20px 100px; 
+                flex-wrap: wrap;
+            }
+        
+
+            /* KHỐI MACOS TIẾP DIỄN */
+            .box15 { 
+                width: 100%; 
+                max-width: 760px; 
+                margin: 0 auto; 
+                padding: 95px 20px 60px;
+            }
+            .box15 img {
+                width: 50%;
+            }
+            
+            .box16 { 
+                margin-left: 0px; 
+                padding: 0 20px 80px; 
+                width: 673px;
+            }
+        
+
+            .box17 {  
+                margin: 0 auto; 
+            }
+        
+
+            .box18 {  
+                padding: 0 20px 100px;
+                display: flex;
+                flex-direction: column;
+            }
+            .box18 .box18-left h5 {
+                margin: 32px;
+            }
+            .box18 .box18-left h1 {
+                margin: 32px;
+                font-weight: 650;
+                font-size: 50px;
+                width: 278px;
+            }
+            .box18 .box18-right  {
+                margin: 32px;
+                margin-top: -180px;
+            }
+            .box18 .box18-right p {
+                width: 500px;
+            }
+            .box19 p {
+                max-width: 650px;
+                font-size: 21px;
+                width: 547px;
+                font-weight: 650px;
+            }
+
+        
+
+            .box20 {
+                margin: 0 auto; 
+                padding: 0 20px 80px; 
+            }
+            .box20 img { 
+                width: 100%;
+                height: 550px;
+            }
+            .box20 p {
+                font-size: 19px;
+                width: 296px;
+                margin-top: -45px;;
+            }
+
+            .box21 {  
+                margin: 0 auto; 
+                padding: 0 20px 80px; 
+
+            }
+            .box21 img {
+                height: 600px;
+            }
+            .box21-r p {
+                width: 300px;
+            }
+            .box21-l p {
+                width: 300px
+            }
+        
+
+            .box22 {  
+                margin: 0 auto; 
+                padding: 0 20px 80px; 
+            }
+            .box22 h1 {
+                width: 600px;
+
+            }
+            .box22-text {
+                margin-left: -70px;
+            }
+            .box23 {
+                margin-left: 50px;
+                margin-top: 100px;
+            }
+            .box23 h5 {
+                width: 506px;
+            }
+            .box23-img img {
+                height: 500px;
+            }
+            .box24 img {
+                width: 100%;
+                margin-top: 225px;
+            
+            transform: scale(2);
+
+            }
+            .box24-content p {
+                width: 500px;
+            }
+
+
+            .box25 {  
+                padding: 0 20px 80px;
+                display:flex;
+                flex-wrap: wrap;
+                width: 620px;
+            }
+            .box25 p {
+                font-size: 18px;
+            }
+
+            .box27 { 
+                padding: 0 20px 100px;
+                display: flex; 
+                flex-wrap: wrap;
+                width: 500px;
+            }
+            .box27 p {
+                margin-top: 10px;
+            }
+        }
+
+        .wrapper-limit {
+            width: 100%;
+            max-width: 1160px; 
+            margin: 0 auto;    
+            padding: 0 40px; 
+            box-sizing: border-box;
+        }
+        .wrapper-limit-box18 {
+            display: flex;
+            gap: 80px;
+            margin: auto;
+        }
+
+        
+            
+    </style>
+    
+</head>
+<body>
+    <div class="header1">
+        <div><svg height="44" viewBox="0 0 14 44" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m13.0729 17.6825a3.61 3.61 0 0 0 -1.7248 3.0365 3.5132 3.5132 0 0 0 2.1379 3.2223 8.394 8.394 0 0 1 -1.0948 2.2618c-.6816.9812-1.3943 1.9623-2.4787 1.9623s-1.3633-.63-2.613-.63c-1.2187 0-1.6525.6507-2.644.6507s-1.6834-.9089-2.4787-2.0243a9.7842 9.7842 0 0 1 -1.6628-5.2776c0-3.0984 2.014-4.7405 3.9969-4.7405 1.0535 0 1.9314.6919 2.5924.6919.63 0 1.6112-.7333 2.8092-.7333a3.7579 3.7579 0 0 1 3.1604 1.5802zm-3.7284-2.8918a3.5615 3.5615 0 0 0 .8469-2.22 1.5353 1.5353 0 0 0 -.031-.32 3.5686 3.5686 0 0 0 -2.3445 1.2084 3.4629 3.4629 0 0 0 -.8779 2.1585 1.419 1.419 0 0 0 .031.2892 1.19 1.19 0 0 0 .2169.0207 3.0935 3.0935 0 0 0 2.1586-1.1368z"></path></svg></div>
+        <div class="menu">Cửa hàng
+            <div class="dropdown">
+                <div class="big">
+                    <h4>Mua Hàng</h4>
+                    <ul>
+                        <li>Mua Sắm Sản Phẩm Mới</li>
+                        <li>Mac</li>
+                        <li>Ipad</li> 
+                        <li>Iphone</li> 
+                        <li>Apple Watch</li>
+                        <li>Airpods</li>
+                        <li>Phụ kiện</li>
+                    </ul>
+                </div>
+                <div class="small">
+                    <h4>Liên Kết Nhanh</h4>
+                    <ul>
+                        <li>Tình Trạng Đơn Hàng</li>
+                        <li>Apple Trade In</li>
+                        <li>Tài Chính</li>
+                    </ul>
+                </div>
+                <div class="small">
+                    <h4>Mua Tại Cửa Hàng Đặc Biệt</h4>
+                    <ul>
+                        <li>Giáo Dục</li>
+                        <li>Doanh Nghiệp</li>
+                    </ul>
+                </div>
+            </div>    
+        </div>
+
+        <div class="menu">Mac
+            <div class="dropdown">
+                <div class="big">
+                    <h4>Khám Phá Mac</h4>    
+                    <ul>
+                        <li>Khám Phá Tất Cả Các Mac</li>
+                        <li>MacBook Neo</li>
+                        <li>MacBook Air</li>
+                        <li>MacBook Pro</li>
+                        <li>iMac</li>
+                        <li>Mac Mini</li>
+                        <li>Mac Studio</li>
+                        <li>Màn Hình</li>
+                    </ul>
+                </div>
+                <div class="small">
+                    <h4>Mua Mac</h4>
+                    <ul>
+                        <li>Mua Mac</li>
+                        <li>Phụ Kiện Mac</li>
+                        <li>Apple Trade In</li>
+                        <li>Tài Chính</li>
+                    </ul>
+                </div>
+                <div class="small">
+                    <h4>Tìm Hiểu Thêm Về Mac</h4>
+                    <ul>
+                        <li>Hỗ Trợ Mac</li>
+                        <li>AppleCare</li>
+                        <li>MacOS Tahoe</li>
+                        <li>Apple Intelligence</li>
+                        <li>Các Ứng Dụng Của Apple</li>
+                        <li>Tuyệt Vời Hơn Với iPhone</li>
+                        <li>+iCloud</li>
+                        <li>Mac Cho Doanh Nghiệp</li>
+                        <li>Giáo Dục</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu">iPad
+            <div class="dropdown">
+                <div class="big">
+                    <h4>Khám Phá iPad</h4>
+                    <ul>
+                        <li>Khám Phá Tất Cả Các iPad</li>
+                        <li>iPad Pro</li>
+                        <li>iPad Air</li>
+                        <li>iPad</li>
+                        <li>iPad Mini</li>
+                        <li>Apple Pencil</li>
+                        <li>Bàn Phím</li>
+                    </ul>
+                </div>
+                <div class="small">
+                    <h4>Mua iPad</h4>
+                    <ul>
+                        <li>Mua iPad</li>
+                        <li>Phụ Kiện iPad</li>
+                        <li>Apple Trade In</li>
+                        <li>Tài Chính</li>
+                    </ul>
+                </div>
+                <div class="small">
+                    <h4>Tìm Hiểu Thêm Về iPad</h4>
+                    <ul>
+                        <li>Hỗ Trợ iPad</li>
+                        <li>AppleCare</li>
+                        <li>iPadOS 26</li>
+                        <li>Apple Intelligence</li>
+                        <li>Các Ứng Dụng Của Apple</li>
+                        <li>+iCloud</li>
+                        <li>Giáo Dục</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu">iPhone
+            <div class="dropdown">
+                <div class="big">
+                    <h4>Khám Phá iPhone</h4>
+                    <ul>
+                        <li>Khám Phá Tất Cả Các iPhone</li>
+                        <li>iPhone 17 Pro</li>
+                        <li>iPhone Air</li>
+                        <li>iPhone 17</li>
+                        <li>iPhone 17e</li>
+                        <li>iPhone 16</li>
+                    </ul>
+                </div>
+                <div class="small">
+                    <h4>Mua iPhone</h4>
+                    <ul>
+                        <li>Mua iPhone</li>
+                        <li>Phụ Kiện iPhone</li>
+                        <li>Apple Trade In</li>
+                        <li>Tài Chính</li>
+                    </ul>
+                </div>
+                <div class="small">
+                    <h4>Tìm Hiểu Thêm Về iPhone</h4>
+                    <ul>
+                        <li>Hỗ Trợ iPhone</li>
+                        <li>AppleCare</li>
+                        <li>iOS 26</li>
+                        <li>Apple Intelligence</li>
+                        <li>Các Ứng Dụng Của Apple</li>
+                        <li>Quyền Riêng Tư Trên iPhone</li>
+                        <li>Tuyệt Vời Hơn Với Mac</li>
+                        <li>+iCloud</li>
+                        <li>Ví, Pay</li>
+                        <li>Siri</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu">Watch
+            <div class="dropdown">
+                <div class="big">
+                    <h4>Khám Phá Watch</h4>
+                    <ul>
+                        <li>Khám Phá Tất Cả Các Watch</li>
+                        <li>Apple Watch Series 11</li>
+                        <li>Apple Watch SE 3</li>
+                        <li>Apple Watch Ultra 3</li>
+                        <li>Apple Watch Nike</li>
+                    </ul>
+                </div>
+                <div class="small">
+                    <h4>Mua Watch</h4>
+                    <ul>
+                        <li>Mua Apple Watch</li>
+                        <li>Dây Đeo Apple Watch</li>
+                        <li>Phụ Kiện Apple Watch</li>
+                        <li>Apple Trade In</li>
+                        <li>Tài Chính</li>
+                    </ul>
+                </div>
+                <div class="small">
+                    <h4>Tìm Hiểu Thêm Về Watch</h4>
+                    <ul>
+                        <li>Hỗ Trợ Watch</li>
+                        <li>AppleCare</li>
+                        <li>watchOS 26</li>
+                        <li>Các Ứng Dụng Của Apple</li>
+                        <li>Apple Fitness+</li>
+                        <li>Giáo Dục</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu">AirPods
+            <div class="dropdown">
+                <div class="big">
+                    <h4>Khám Phá AirPods</h4>
+                    <ul>
+                        <li>Khám Phá Tất Cả Các AirPods</li>
+                        <li>AirPods 4</li>
+                        <li>AirPods Pro 3</li>
+                        <li>AirPods Max 2</li>
+                    </ul>
+                </div>
+                <div class="small">
+                    <h4>Mua Airpods</h4>
+                    <ul>
+                        <li>Mua AirPods</li>
+                        <li>Phụ Kiện AirPods</li>
+                    </ul>
+                </div>
+                <div class="small">
+                    <h4>Tìm Hiểu Thêm Về AirPods</h4>
+                    <ul>
+                        <li>Hỗ Trợ AirPods</li>
+                        <li>AppleCare</li>
+                        <li>Sức Khỏe Thính Giác</li>
+                        <li>Apple Music</li>
+                        <li>Apple Fitness+</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="menu">TV & Nhà
+            <div class="dropdown">
+                <div class="big">
+                    <h4>Khám Phá TV & Nhà</h4>
+                    <ul>
+                        <li>Khám Phá TV & Nhà</li>
+                        <li>Apple TV 4K</li>
+                    </ul>
+                </div>
+                <div class="small">
+                    <h4>Mua TV & Nhà</h4>
+                    <ul>
+                        <li>Mua Apple TV 4K</li>
+                        <li> Mua Phụ Kiện TV & Nhà</li>
+                    </ul>
+                </div>
+                <div class="small">
+                    <h4>Tìm Hiểu Thêm Về TV & Nhà</h4>
+                    <ul>
+                        <li>Hỗ Trợ Apple TV & Nhà</li>
+                        <li>AppleCare Cho Apple TV</li>
+                        <li>Ứng Dụng Apple TV</li>
+                        <li>Apple TV</li>
+                        <li>Apple Music</li>
+                        <li>Siri</li>
+                        <li>AirPlay</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu">Giải trí
+            <div class="dropdown">
+                <div class="big">
+                    <h4>Khám Phá Giải Trí</h4>
+                    <ul>
+                        <li>Khám Phá Giải Trí</li>
+                        <li>Apple One</li>
+                        <li>Apple TV</li>
+                        <li>Apple Music</li>
+                        <li>Apple Arcade</li>
+                        <li>Apple Fitness+</li>
+                        <li>Apple PodCasts</li>
+                        <li>Apple Books</li>
+                        <li>Apple Store</li>
+                    </ul>
+                </div>
+                <div class="small">
+                    <h4>Hỗ Trợ</h4>
+                    <ul>
+                        <li>Hỗ trợ Apple TV</li>
+                        <li>Hỗ trợ Apple Music</li>
+                    </ul>
+                </div>
+            </div>  
+        </div> 
+
+        <div class="menu">Phụ kiện
+            <div class="dropdown">
+                <div class="big">
+                    <h4>Mua Phụ Kiện</h4>
+                    <ul>
+                        <li>Mua Tất Cả Phụ Kiện</li>
+                        <li>Mac</li>
+                        <li>iPad</li>
+                        <li>iPhone</li>
+                        <li>Apple Watch</li>
+                        <li>AirPods</li>
+                        <li>TV & Nhà</li>
+                    </ul>
+                </div>
+                <div class="small">
+                    <h4>khám Phá Phụ Kiện</h4>
+                    <ul>
+                        <li>Sản Xuất Bởi Apple</li>
+                        <li>Beats</li>
+                        <li>AirTag</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu">Hỗ trợ
+            <div class="dropdown">
+                <div class="big">
+                    <h4>Khám Phá Hỗ Trợ</h4>
+                    <ul>
+                        <li>iPhone</li>
+                        <li>Mac</li>
+                        <li>iPad</li>
+                        <li>Watch</li>
+                        <li>AirPods</li>
+                        <li>Music</li>
+                        <li>TV</li>
+                    </ul>
+                </div>
+                <div class="small">
+                    <h4>Trợ Giúp</h4>
+                    <ul>
+                        <li>Cộng Đồng</li>
+                        <li>Kiểm Tra Bảo Hành</li>
+                        <li>Sửa Chữa</li>
+                    </ul>
+                </div>
+                <div class="small">
+                    <h4>Chủ Đề Hữu Ích</h4>
+                    <ul>
+                        <li>Mua AppleCare</li>
+                        <li>Tài Khoản Và Mật Khẩu Apple</li>
+                        <li>Thanh Toán & Gói Đăng Ký</li>
+                        <li>Trợ Năng</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg"  margin-left="10px" width="15px" height="44px" viewBox="0 0 15 44"><path d="M14.298,27.202l-3.87-3.87c0.701-0.929,1.122-2.081,1.122-3.332c0-3.06-2.489-5.55-5.55-5.55c-3.06,0-5.55,2.49-5.55,5.55 c0,3.061,2.49,5.55,5.55,5.55c1.251,0,2.403-0.421,3.332-1.122l3.87,3.87c0.151,0.151,0.35,0.228,0.548,0.228 s0.396-0.076,0.548-0.228C14.601,27.995,14.601,27.505,14.298,27.202z M1.55,20c0-2.454,1.997-4.45,4.45-4.45 c2.454,0,4.45,1.997,4.45,4.45S8.454,24.45,6,24.45C3.546,24.45,1.55,22.454,1.55,20z"></path></svg>
+            <svg height="44" viewBox="0 0 14 44" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m11.3535 16.0283h-1.0205a3.4229 3.4229 0 0 0 -3.333-2.9648 3.4229 3.4229 0 0 0 -3.333 2.9648h-1.02a2.1184 2.1184 0 0 0 -2.117 2.1162v7.7155a2.1186 2.1186 0 0 0 2.1162 2.1167h8.707a2.1186 2.1186 0 0 0 2.1168-2.1167v-7.7155a2.1184 2.1184 0 0 0 -2.1165-2.1162zm-4.3535-1.8652a2.3169 2.3169 0 0 1 2.2222 1.8652h-4.4444a2.3169 2.3169 0 0 1 2.2222-1.8652zm5.37 11.6969a1.0182 1.0182 0 0 1 -1.0166 1.0171h-8.7069a1.0182 1.0182 0 0 1 -1.0165-1.0171v-7.7155a1.0178 1.0178 0 0 1 1.0166-1.0166h8.707a1.0178 1.0178 0 0 1 1.0164 1.0166z"></path></svg>
+        </div>
+    </div>
+    <div class="sub-navbar">
+        <div class="sub-navbar-content">
+            <div class="sub-navbar-left">
+                <a href="#">Mac mini</a>
+            </div>
+            <div class="sub-navbar-right">
+                <ul>
+                    <li class="active"><a href="#">Tổng Quan</a></li>
+                    <li><a href="#">Thông Số Kỹ Thuật</a></li>
+                    <li><a href="#">So Sánh</a></li>
+                    <li><a href="#">Chuyển Từ PC Sang Mac</a></li>
+                </ul>
+                <a href="#" class="btn-buy-mini">Mua</a>
+            </div>
+        </div>
+    </div>
+    <div class="learnmore">
+        <p>Thanh toán hàng tháng thật dễ dàng. Bao gồm lựa chọn lãi suất 0%.</p>
+        <a href="#"> Tìm hiểu thêm > </a>
+    </div>
+    <div class="box1">
+        <img src="https://www.apple.com/v/mac-mini/aa/images/overview/welcome/welcome_hero__ckmy0qsqi8ia_large.jpg" alt="Front view of silver Mac mini showing front ports and indicator light.">
+        <h2>Được thiết kế cho Apple Intelligence.</h2>
+        <button class="button">Mua</button>
+        <p>Từ 20.499.000đ hoặc 835.000đ/th. trong 24 tháng.</p>
+    </div>
+    <div class="wrapper-limit">
+        <div class="box2">
+            <h1 class=" wow animate__animated animate__fadeInUp">Các điểm nổi bật.</h1>
+            <div class="noti wow animate__animated animate__fadeInUp">
+                <div class="eye">
+                    <span>Xem thông báo bằng mắt</span>
+                    <span><sup data-footnote="footnote-0" class="footnote footnote-supglyph" aria-label="Footnote ΔΔ symbol">ΔΔ</sup></span>
+                    <span><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT3B_P1OnQ9qJTNPCOeRuUVwUBc5LJCk-LdPXwMfSiy7krGmKTc" alt="Play icon" width="15px" height="15px" margin-right="10px"></span>
+                </div>
+                <div class="lag">
+                    <span>Xem bằng Ngôn Ngữ Ký Hiệu Mỹ</span>
+                    <span><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT3B_P1OnQ9qJTNPCOeRuUVwUBc5LJCk-LdPXwMfSiy7krGmKTc" alt="Play icon" width="15px" height="15px" ></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="slide-item1">
+                <img src="https://www.apple.com/vn/mac-mini/images/overview/highlights/highlights_design_startframe__cfxx0ywg3u76_xlarge.jpg">
+                <p class="text wow animate__animated animate__fadeInLeft ">Thiết kế siêu nhỏ gọn hoàn toàn mới. Cổng kết nối trước và sau. Vừa vặn, linh hoạt, và nhanh như bay trên mọi bàn làm việc.</p>
+            </div>
+            <div class="slide-item2">
+                <p class="text wow animate__animated animate__fadeInRight">Apple Intelligence.<br>Riêng tư, bảo mật, mạnh mẽ.</p>
+                <img src="https://www.apple.com/v/mac-mini/aa/images/overview/highlights/highlights_apple_intelligence_siri__d3sx3fy1hv8m_xlarge.jpg">
+            </div>
+            <div class="slide-item3">
+                <p class="text wow animate__animated animate__fadeInRight">M4, M4 Pro. Hiệu năng đẳng cấp mới.<br>Đồ họa thay đổi cuộc chơi. Thêm sức mạnh cho bạn.</p>
+            <img src="https://www.apple.com/v/mac-mini/aa/images/overview/highlights/highlights_mx_endframe__exbgjg263l6q_xlarge.jpg">
+            </div>
+        </div>
+    </div>
+    <div class="static-media-controls">
+        <div class="control-btn-play">
+            <i class="fa-solid fa-play"></i>
+        </div>
+        <div class="control-navbar-dots">
+            <span class="dot-dash active"></span>
+            <span class="dot-circle"></span>
+            <span class="dot-circle"></span>
+        </div>
+    </div>
+
+    <div class="wrapper-limit">
+        <div class="box3">
+            <h1 class=" wow animate__animated animate__fadeInUp">Ngắm nhìn cận cảnh.</h1>
+        </div>
+        <div class="container wow animate__animated animate__fadeInUp">
+            <div class="row">
+                <div class="col-12">
+                    <div class="large">
+                        <img src="https://www.apple.com/v/mac-mini/aa/images/overview/bento-gallery/2d_pf__en2v80tcytua_xlarge.jpg">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row d-flex flex-column flex-md-row g-4">
+                <div class="col-6">
+                    <div class="small">
+                        <img src="https://www.apple.com/v/mac-mini/aa/images/overview/bento-gallery/2d_ports__dns84xkaxogi_xlarge.jpg" style="width: 70%; margin-left: 20px;">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="small">
+                        <img src="https://www.apple.com/v/mac-mini/aa/images/overview/bento-gallery/2d_pb_hand__crjyfo1248wi_xlarge.jpg" style="margin-left: -146px; width: 654px; height: 515px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row d-flex flex-column flex-md-row g-4">
+                <div class="col-6">
+                    <div class="small">
+                        <img src="https://www.apple.com/v/mac-mini/aa/images/overview/bento-gallery/2d_bottom__fbzecpbfajm2_xlarge.jpg" style="width: 705px; height: 144%;">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="small">
+                        <img src="https://www.apple.com/v/mac-mini/aa/images/overview/bento-gallery/2d_pt__cs9nfar5mgq6_xlarge.jpg" style="width: 386px; margin: 0px 0px 0px 145px;">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="large">
+                        <img src="https://www.apple.com/v/mac-mini/aa/images/overview/bento-gallery/2d_pb__f1t1bm1m0aaa_xlarge.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="background-color: rgb(245,245,247) ;">
+        <div class="box4">
+            <p>Thiết kế</p>
+            <h1>Nhỏ.<span class="int">Rẽ sóng đạp gió.</span></h1>
+            <p class="para">Giới thiệu Mac mini hoàn toàn mới, quyền năng hơn, nhỏ gọn hơn rất nhiều. 
+                Kích thước chỉ 5 x 5 inch, đầy sức mạnh và công năng. Được thiết kế mới dành 
+                riêng cho Apple silicon nhằm phát huy tối đa tốc độ và năng lực của chip M4 
+                và M4 Pro. Với đa dạng cổng kết nối, nay ở cả mặt trước và mặt sau. Mac mini 
+                chính là chuẩn mực về hiệu năng. Thật sự là một chiếc Mac nhỏ nhưng tài năng.</p>
+        </div>
+        <div class="box5 ">
+            <div class="wow animate__animated animate__zoomIn">
+                <img src="https://www.apple.com/v/mac-mini/aa/images/overview/design/ports_startframe__f0wr03ggmsii_large.png">
+                <div class="left wow animate__animated animate__fadeIn">5"</div>
+                <div class="bottom wow animate__animated animate__fadeIn">5"</div>
+            </div>
+
+            <div class="box5-text wow animate__animated animate__fadeInRight">
+                <h2>Kích thước bằng <span>1/20</span><br>nhưng nhanh hơn<br>đến <span>6x</span></h2>
+                <p>so với máy tính để bàn bán chạy hàng đầu trong cùng tầm giá.</p>
+            </div>
+
+    </div>
+    <div class="box6 wow animate__animated animate__fadeInRight">
+        <h2>2x USB‑C</h2>
+        <h2>Jack cắm tai nghe</h2>
+        <img src="https://www.apple.com/v/mac-mini/aa/images/overview/design/design_pf__c25gukz0vwgi_large.jpg">
+        <p>Cổng trước</p>
+    </div>
+    <div class="box7 wow animate__animated animate__fadeInLeft">
+        <h2>HDMI</h2>
+        <h2>Ethernet</h2>
+        <h2>3x Thunderbolt</h2>
+        <img src="https://www.apple.com/v/mac-mini/aa/images/overview/design/design_pb__cxvqbmm5dfcm_large.jpg">
+        <p>Cổng sau</p>
+    </div>
+    <div class="wrapper-limit">
+        <div class="box8 wow animate__animated animate__fadeInUp">
+            <h1>Được thiết kế <span>thoáng mát.</span></h1>
+            <p>Để một không gian nhỏ gọn có thể mạnh mẽ đến như vậy, Mac mini được thiết kế với một kết cấu tản nhiệt hoàn toàn mới. Bên trong thiết bị, không khí được dẫn qua những tầng khác nhau của bộ máy và tất cả đều thoát qua phần đáy. Kết hợp với khả năng tiết kiệm điện vô song của Apple silicon, Mac mini nhờ vậy có thể hoàn thành những khối lượng công việc khổng lồ với tốc độ đáng kinh ngạc. Một sản phẩm ổn định, thoáng mát và được cải tiến hoàn hảo.</p>
+        </div>
+        <div class="box9">
+            <img src="https://www.apple.com/v/mac-mini/aa/images/overview/design/design_thermal_endframe__f9y2jd59a82u_large.jpg">
+        </div>
+    </div>
+    </div>
+    <div class="box10">
+        <img src="https://www.apple.com/vn/mac-mini/images/overview/performance/performance_hero_1__eq1k7v88xloy_large.jpg">
+    </div>
+    <div class="btn-material-floating">
+        <span>Tìm hiểu sâu về vật liệu và thiết kế</span>
+        <div class="btn-plus-blue">
+            <i class="fa-solid fa-plus"></i>
+        </div>
+    </div>
+    <div class="btn-chip-floating">
+        <span>Khám phá M4 và M4 Pro</span>
+        <div class="btn-plus-blue">
+            <i class="fa-solid fa-plus"></i>
+        </div>
+    </div>
+    <div class="box11">
+        <h5>Hiệu năng</h5>
+        <h1>M4 và M4 Pro.</h1>
+        <h1><span>Chip quán quân.</span></h1>
+    </div>
+    
+    <div class="box12-slide">
+        <div class="item">
+        <img src="https://www.apple.com/v/mac-mini/aa/images/overview/performance/performance_hw_display_mac_mini__duzudvllj8sy_large.png">
+          <img src="https://www.apple.com/v/mac-mini/aa/images/overview/performance/performance_middle_screen_endframe__31u52tr9utey_large.jpg">
+       </div>
+        <div class="item">
+            <img src="https://www.apple.com/v/mac-mini/aa/images/overview/performance/performance_hw_display__bo6ks7s2l9si_large.png">
+            <img src="https://www.apple.com/v/mac-mini/aa/images/overview/performance/performance-right_screen_startframe__gmvs38k2peum_large.jpg">
+        </div>
+        <div class="item">
+            <img src="https://www.apple.com/v/mac-mini/aa/images/overview/performance/performance_hw_display__bo6ks7s2l9si_large.png">
+            <img src="https://www.apple.com/v/mac-mini/aa/images/overview/performance/performance_screen_left__c5fg5tgdnhiu_large.jpg">
+       </div>
+    </div>
+    <div class="box12-text"><p>Cinema 4D với Redshift, DaVinci Resolve Studio</p></div>
+    <div class="wrapper-limit">
+        <div class="box13">
+            <p>Nay với M4 và M4 Pro, Mac mini mang đến hiệu năng vượt trội và năng lực AI đẳng cấp mới. Cả hai chip đều có CPU thế hệ mới, vì vậy mọi việc đều nhanh chóng và trôi chảy. Nhờ có GPU mạnh mẽ với công nghệ dò tia tốc độ cao bằng phần cứng, bạn sẽ được trải nghiệm đồ họa game chân thực và kết xuất 3D mượt mà đến khó tin. Và Neural Engine tiên tiến giúp các tác vụ AI được thực hiện ở tốc độ siêu nhanh.</p>
+        </div>
+        <div class="box14">
+            <h3 class=><span>Công nghệ dò tia</span> tốc<br> độ cao bằng phần<br> cứng cho đồ họa thay<br>đổi cuộc chơi.</h3>
+            <h3 class="ps-5">Điều khiển <br> lên đến<span><br> ba màn hình.</span></h3>
+            <h3><span>CPU</span> thế hệ mới mang tới khả năng phản hồi ấn tượng.</h3>
+        </div>
+    </div>
+    <div class="wrapper-limit">
+    
+        <div class="image-tabs-container">
+            
+            <div class="tab-img-content active" data-index="1">
+                <div class="box15">
+                    <img src="https://www.apple.com/v/mac-mini/aa/images/overview/performance/performance_productivity_1__d40pebfrlqmq_large_2x.jpg">
+                    <img src="https://www.apple.com/vn/mac-mini/images/overview/performance/performance_productivity_2__do0p70ktiuuu_large.jpg">
+                </div>
+            </div>
+
+            <div class="tab-img-content" data-index="2">
+                <div class="box15">
+                    <img src="https://www.apple.com/v/mac-mini/aa/images/overview/performance/performance_creativity_1__fqwakkhqpm2q_large_2x.jpg">
+                    <img src="https://www.apple.com/v/mac-mini/aa/images/overview/performance/performance_creativity_2__dza6766qhqye_large_2x.jpg"> </div>
+            </div>
+
+            <div class="tab-img-content" data-index="3">
+                <div class="box15">
+                    <img src="https://www.apple.com/v/mac-mini/aa/images/overview/performance/performance_stem_1__bmu2eay841xy_large_2x.jpg">
+                    <img src="https://www.apple.com/v/mac-mini/aa/images/overview/performance/performance_stem_2__bjc3rh4n7dw2_large_2x.jpg"> </div>
+            </div>
+
+            <div class="tab-img-content" data-index="4">
+                <div class="box15">
+                    <img src="https://www.apple.com/v/mac-mini/aa/images/overview/performance/performance_gaming_1__4f5hs0u1cgie_large_2x.jpg">
+                    <img src="https://www.apple.com/v/mac-mini/aa/images/overview/performance/performance_gaming_2__cyr5zva871aq_large_2x.jpg"> </div>
+            </div>
+
+            <div class="tab-img-content" data-index="5">
+                <div class="box15">
+                    <img src="https://www.apple.com/v/mac-mini/aa/images/overview/performance/performance_coding_1__dm83k6b69is2_large_2x.jpg">
+                    <img src="https://www.apple.com/v/mac-mini/aa/images/overview/performance/performance_coding_2__b8ybr062yjo2_large_2x.jpg"> </div>
+            </div>
+
+        </div>
+
+        <div class="tab-bar" style="margin-top: 40px; margin-bottom: 40px;">
+            <div class="tab active" data-click-index="1">Hiệu suất</div>
+            <div class="tab" data-click-index="2">Sáng tạo</div>
+            <div class="tab" data-click-index="3">STEM</div>
+            <div class="tab" data-click-index="4">Chơi game</div>
+            <div class="tab" data-click-index="5">Lập trình</div>
+        </div>
+
+        <div class="text-tabs-container">
+            
+            <div class="tab-text-content active" data-index="1">
+                <div class="box16">
+                    <h4>Thực hiện nhanh chóng các công việc thường nhật, mở và chuyển đổi liền mạch giữa các ứng dụng, đồng thời sáng tạo và cộng tác trên các ứng dụng như Adobe Acrobat, Microsoft Excel, Slack và Zoom.</h4>
+                </div>
+            </div>
+
+            <div class="tab-text-content" data-index="2">
+                <div class="box16">
+                    <h4>Theo đuổi sở thích, đam mê và cả các dự án sáng tạo chuyên nghiệp như chỉnh sửa video bằng Final Cut Pro, tạo nhịp và hòa âm bằng Logic Pro, lập mô hình 3D bằng Blender hoặc thiết kế bằng Adobe Photoshop.</h4>
+                </div>
+            </div>
+
+            <div class="tab-text-content" data-index="3">
+                <div class="box16">
+                    <h4>Phân tích các tập dữ liệu lớn bằng MATLAB, phác thảo mô hình 2D và 3D bằng Autodesk AutoCAD, hay thậm chí tiếp thêm sức mạnh cho trạm y tế di động để xử lý hình ảnh và biểu đồ.</h4>
+                </div>
+            </div>
+
+            <div class="tab-text-content" data-index="4">
+                <div class="box16">
+                    <h4>Chơi các trò chơi kịch tính như Prince of Persia: The Lost Crown. Hoặc hỗ trợ công nghệ dò tia tốc độ cao bằng phần cứng trong các tựa game như Myst, Control Ultimate Edition và Layers of Fear 2023, cho hiệu ứng ánh sáng, đổ bóng và phản chiếu cực kỳ sống động và chân thực.</h4>
+                </div>
+            </div>
+
+            <div class="tab-text-content" data-index="5">
+                <div class="box16">
+                    <h4>Viết và biên dịch mã nhanh hơn với tính năng hoàn thành mã theo dự đoán trong Xcode. Ngoài ra, xây dựng và thử nghiệm ứng dụng của bạn trên nhiều trình mô phỏng với tốc độ nhanh chưa từng thấy.</h4>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div class="box17">
+        <img src="https://www.apple.com/v/mac-mini/aa/images/overview/macos/macos__dc9oy014voia_large.jpg">
+    </div>
+   <div class="box18">
+        <div class="wrapper-limit-box18">
+            <div class="box18-left">
+                <h5>macOS</h5>
+                <h1>Cho <span>các ứng dụng</span> chạy nhanh như bay.</h1>
+            </div>
+            <div class="box18-right">
+                <p>Mac mini tích hợp các ứng dụng đáng kinh ngạc, quyền riêng tư và bảo mật, cùng nhiều tính năng để làm việc và giải trí. Và macOS đem đến tốc độ và khả năng phản hồi nhạy bén hơn cho mọi ứng dụng bạn hay dùng, từ Microsoft Word, Excel và Outlook đến Slack và Adobe Photoshop.</p>
+                <h5>Tìm hiểu thêm về macOS ></h5>
+            </div>
+        </div>
+    </div>
+    <div style="background-color: rgb(245, 245, 247) ;">
+        <div class="box19">
+            <h1><span>Apple Intelligence</span></h1>
+            <h1>Trí tuệ. Tối cao.</h1>
+            <p>Apple Intelligence là hệ thống trí tuệ cá nhân giúp bạn viết lách, thể hiện bản thân và hoàn thành công việc dễ dàng. Với tính năng bảo vệ quyền riêng tư đột phá, Apple Intelligence giúp bạn yên tâm rằng không một ai khác có thể truy cập dữ liệu của bạn, kể cả Apple.</p>
+            <h5>Tìm hiểu thêm về Apple Intelligence ></h5>
+        </div>
+                
+        
+            
+        <div class="wrapper-limit">
+            <div class="box20">
+                <img src="https://www.apple.com/v/mac-mini/aa/images/overview/apple-intelligence/apple_intelligence_writing_tools__fjz48hglsm6i_large.jpg">
+                <p>Công Cụ Viết. Apple Intelligence có thể hiệu đính văn bản và viết lại các phiên bản khác nhau cho đến khi có được giọng văn và từ ngữ phù hợp, và tóm tắt văn bản đã chọn bằng một thao tác bấm.</p>
+            </div>
+            <div class="box21">
+                <div class="box21-l">
+                    <img src="https://www.apple.com/v/mac-mini/aa/images/overview/apple-intelligence/image_playground_endframe__fouacf71bnmi_large.jpg">
+                    <p>Image Playground. Tạo ra những hình ảnh vui nhộn, độc đáo dựa trên mô tả, khái niệm, hay thậm chí là một người nào đó từ thư viện Ảnh của bạn.</p>
+                </div>
+                <div class="box21-r">
+                    <img src="https://www.apple.com/v/mac-mini/aa/images/overview/apple-intelligence/apple_intelligence_memory_movie__eifpq3t6mbee_large.jpg">
+                    <p>Tìm kiếm bằng ngôn ngữ tự nhiên trong Ảnh Dễ dàng tìm kiếm ảnh và video bằng cách mô tả những gì bạn đang tìm kiếm.</p>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper-limit">
+            <div class="box22">
+                <img src="https://www.apple.com/v/mac-mini/aa/images/overview/apple-intelligence/privacy_endframe__bbq2iw37ny8i_large.png">
+                <h1>Sức mạnh lớn lao đi cùng <span>quyền riêng tư</span> vượt trội.</h1>
+                <div class="box22-text">
+                    <h5>Apple Intelligence được thiết kế để bảo vệ quyền riêng tư của bạn trên từng bước. Công nghệ này được tích hợp vào cốt lõi của Mac thông qua quy trình xử lý trên thiết bị. Vậy nên Apple Intelligence có thể nhận thức được nhưng không thu thập thông tin cá nhân của bạn.</h5>
+                    <h5>Và với Điện Toán Đám Mây Riêng đột phá, Apple Intelligence có thể sử dụng các mô hình dựa trên các máy chủ lớn, chạy trên Apple silicon, để xử lý các yêu cầu phức tạp cho bạn mà vẫn bảo vệ quyền riêng tư của bạn.</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper-limit">
+        <div class="box23">
+            <h4>Mac + iPhone</h4>
+            <h1>Cú đấm <span>kép.</span></h1>
+            <h5>Khi sử dụng cùng nhau, iPhone và Mac mini phối hợp rất tuyệt vời. Bạn có thể thực hiện và trả lời cuộc gọi hay tin nhắn văn bản trên iPhone trực tiếp từ máy Mac, sử dụng iPhone làm webcam hoặc máy quét tài liệu và truy cập không dây vào iPhone bằng ứng dụng Phản Chiếu iPhone trong Dock.</h5>
+
+        </div>
+    </div>
+    <div class="wrapper-limit">
+    
+        <div class="mac-iphone-images-container">
+            
+            <div class="iphone-img-pane active" data-content-index="1">
+                <div class="box23-img" style="margin-left: 0;">
+                    <img src="https://www.apple.com/vn/mac-mini/images/overview/mac-iphone/mac_iphone_mirroring__f420q7238wuy_large.jpg" style="width: 100%; border-radius: 30px;">
+                </div>
+            </div>
+
+            <div class="iphone-img-pane" data-content-index="2">
+                <div class="box23-img" style="margin-left: 0;">
+                    <img src="https://www.apple.com/vn/mac-mini/images/overview/mac-iphone/mac_iphone_clipboard__eliw61i4uzu6_large_2x.jpg" style="width: 100%; border-radius: 30px;">
+                </div>
+            </div>
+
+            <div class="iphone-img-pane" data-content-index="3">
+                <div class="box23-img" style="margin-left: 0;">
+                    <img src="https://www.apple.com/v/mac-mini/aa/images/overview/mac-iphone/mac_iphone_airdrop__duo56yt9n2ie_large_2x.jpg" style="width: 100%; border-radius: 30px;">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="tab-bar" style="margin-top: 40px; margin-bottom: 40px;">
+            <div class="tab active" data-click-target="1">Phản Chiếu iPhone</div>
+            <div class="tab" data-click-target="2">Bảng Nhớ Tạm Chung</div>
+            <div class="tab" data-click-target="3">AirDrop</div>
+        </div>
+
+        <div class="mac-iphone-text-container">
+            
+            <div class="iphone-text-pane active" data-content-index="1">
+                <div class="box23-text" style="display: block; text-align: center;">
+                    <h5 style="width: 100%; max-width: 590px; margin: 0 auto; font-size: 18px; font-weight: 650; line-height: 1.5;">Xem và sử dụng iPhone từ máy Mac mà không cần phải chạm vào điện thoại.</h5>
+                </div>
+            </div>
+
+            <div class="iphone-text-pane" data-content-index="2">
+                <div class="box23-text" style="display: block; text-align: center;">
+                    <h5 style="width: 100%; max-width: 590px; margin: 0 auto; font-size: 18px; font-weight: 650; line-height: 1.5;">Sao chép văn bản, hình ảnh, ảnh chụp và video trên iPhone rồi dán vào máy Mac hoặc ngược lại.</h5>
+                </div>
+            </div>
+
+            <div class="iphone-text-pane" data-content-index="3">
+                <div class="box23-text" style="display: block; text-align: center;">
+                    <h5 style="width: 100%; max-width: 615px; margin: 0 auto; font-size: 18px; font-weight: 650; line-height: 1.5;">Gửi không dây hình ảnh, tập tin, tài liệu và nhiều thứ khác giữa iPhone, máy Mac và các thiết bị Apple khác ở gần.</h5>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="box24">
+        <img src="https://www.apple.com/v/mac-mini/aa/images/overview/accessories/accessories__epqbxqhaysgi_large.jpg">
+        <div class="box24-content">
+            <h5>Phụ kiện</h5>
+            <h1><span>Kết nối</span> rồi slay.</h1>
+            <p>Mac mini được thiết kế để kết hợp hoàn hảo với Studio Display, Magic Keyboard và Magic Mouse. Nhưng thiết bị này cũng sẵn sàng hoạt động với các màn hình và phụ kiện mà bạn đang sở hữu. Vì vậy bạn có thể phối hợp, ghép và biến hóa Mac mini theo ý mình.</p>
+            <h5>Mua sắm phụ kiện cho Mac mini ></h5>
+        </div>
+    </div>
+    <div class="wow animate__animated animate__fadeInUp">
+        <div class="box25">
+            <h1>Vì sao Apple là nơi tốt nhất để mua Mac.</h1>
+            <p>Mua sắm Mac ></p>
+        </div>
+        <div class="box26-slide">
+            <div class="card26">
+                <img class="card-icon" src="https://www.apple.com/vn/mac-mini/images/overview/incentive/icon_apple_card__fa68csvawtei_large.png">
+                <h2>Thanh toán hàng tháng thật dễ dàng.</h2>
+                <p>Bao gồm lựa chọn lãi suất 0%.</p>
+                <div class="plus-btn">+</div>
+            </div>
+            <div class="card26">
+                <img class="card-icon" src="https://www.apple.com/v/mac-mini/aa/images/overview/incentive/icon_tradein__f3ek6lie06q2_large.png">
+                <h2>Tiết kiệm với Apple Trade In.</h2>
+                <p>Đổi thiết bị đủ điều kiện của bạn lấy điểm tín dụng cho lần mua hàng tiếp theo.</p>
+                <div class="plus-btn">+</div>
+            </div>
+            <div class="card26">
+                <img class="card-icon" src="https://www.apple.com/v/mac-mini/aa/images/overview/incentive/icon_edu__c7m4gajh7omu_large.png">
+                <h2>Tiết kiệm với chính sách trợ giá cho giáo dục.</h2>
+                <p>Sinh viên đại học và giảng viên có thể mua Mac với giá tiết kiệm tại Apple Store.</p>
+                <div class="plus-btn">+</div>
+            </div>
+            <div class="card26">
+                <img class="card-icon" src="https://www.apple.com/v/mac-mini/aa/images/overview/incentive/icon_customize__gk4hdrnqqzau_large.png">
+                <h2>Tùy chỉnh máy Mac của bạn.</h2>
+                <p>Chọn chip, bộ nhớ, dung lượng lưu trữ và cả màu sắc.</p>
+                <div class="plus-btn">+</div>
+            </div>
+            <div class="card26">
+                <img class="card-icon" src="https://www.apple.com/v/mac-mini/aa/images/overview/incentive/icon_delivery__egu6sjyw5csy_large.png">
+                <h2>Giao hàng miễn phí.</h2>
+                <p>Giao hàng miễn phí thẳng đến tận nhà.</p>
+                <div class="plus-btn">+</div>
+            </div>
+            <div class="card26">
+                <img class="card-icon" src="https://www.apple.com/v/mac-mini/aa/images/overview/incentive/icon_specialist__cfi5d4oa5ufm_large.png">
+                <h2>Mua sắm cùng Chuyên Gia Máy Mac.</h2>
+                <p>Mua sắm trực tiếp với Chuyên Gia trực tuyến.</p>
+                <div class="plus-btn">+</div>
+            </div>
+            <div class="card26">
+                <img class="card-icon" src="https://www.apple.com/v/mac-mini/aa/images/overview/incentive/icon_applestore__cyiipoxmov8m_large.png">
+                <h2>Khám phá trải nghiệm mua sắm được thiết kế dành cho bạn.</h2>
+                <p>Sử dụng ứng dụng Apple Store để có phương thức mua sắm cá nhân hơn.</p>
+                <div class="plus-btn">+</div>
+            </div>
+        </div>
+    </div>
+    <div class="box27 wow animate__animated animate__fadeInUp">
+        <h1>So sánh với iMac.</h1>
+        <p>Khám phá tất cả các phiên bản Mac ></p>
+    </div>
+    <div class="box28-wrap">
+        <div class="box28">
+            <div class="box28-left wow animate__animated animate__fadeInUp">
+                <img src="https://www.apple.com/v/mac-mini/aa/images/overview/contrast/product_tile_mac_mini__gb0ctje8weqa_large_2x.png">
+                <div class="color-dots">
+                    <ul>
+                        <li class="dot silver"></li>
+                    </ul>
+                </div>
+                <p>Mới</p>
+                <h5>Mac mini</h5>
+                <p>Chip M4 hoặc M4 Pro</p>
+                <p>Mac mini nhỏ nhất, giá hợp lý nhất với hiệu năng khủng.</p>
+                <p>Từ 21.999.000đ hoặc 896.000đ/th. trong 24 tháng</p>
+                <p>Hiện đang xem</p>
+                <a href="#" style="color:#0066cc;">Mua ›</a>
+            </div>
+            <div class="box28-right wow animate__animated animate__fadeInUp">
+                <img src="https://www.apple.com/v/mac-mini/aa/images/overview/contrast/product_tile_imac__emsuovofhdaq_large_2x.png">
+                <ul class="color-dots">
+                    <li class="dot blue"></li>
+                    <li class="dot purple"></li>
+                    <li class="dot pink"></li>
+                    <li class="dot orange"></li>
+                    <li class="dot yellow"></li>
+                    <li class="dot green"></li>
+                    <li class="dot silver"></li>
+                </ul>
+                <p>Mới</p>
+                <h5>iMac</h5>
+                <p>Chip M4</p>
+                <p>Máy tính để bàn tất cả trong một tuyệt đẹp, cho sáng tạo và năng suất.</p>
+                <p>Từ 41.499.000đ hoặc 1.690.000đ/th. trong 24 tháng</p>
+                <button style="background:#0066cc; color:white; border:none; padding:10px 20px; border-radius:20px; cursor:pointer; margin-bottom:10px;">Tìm hiểu thêm</button>
+                <a href="#" style="color:#0066cc;">Mua ›</a>
+            </div>
+
+
+            <div class="box28-specs">
+                <div class="spec-row">
+                    <div class="spec-col-left">
+                        <span class="dash-icon">—</span>
+                    </div>
+                    <div class="spec-col-right">
+                        <h2>24"</h2>
+                        <p>Màn hình Retina 4,5K với độ sáng 500 nit mang đến chi tiết sắc nét và sống động.</p>
+                    </div>
+                </div>
+
+                <div class="spec-row">
+                    <div class="spec-col-left">
+                        <img class="chip-logo" src="https://www.apple.com/v/mac-mini/aa/images/overview/contrast/icon_mx_mx_pro__eqckqts5vs66_large.png" alt="Chip M4 / M4 Pro">
+                        <p>Chip Apple M4 hoặc chip M4 Pro</p>
+                    </div>
+                    <div class="spec-col-right">
+                        <img class="chip-logo" src="https://www.apple.com/v/mac-mini/aa/images/overview/contrast/icon_mx__ggsepmdbto2u_large.png" alt="Chip M4">
+                        <p>Chip Apple M4</p>
+                    </div>
+                </div>
+
+                <div class="spec-row">
+                    <div class="spec-col-left">
+                        <img class="ai-logo" src="https://www.apple.com/v/mac-mini/aa/images/overview/contrast/icon_apple_intelligence__bsijqtye8n1e_large.png" alt="Apple Intelligence">
+                        <p>Apple Intelligence</p>
+                    </div>
+                    <div class="spec-col-right">
+                        <img class="ai-logo" src="https://www.apple.com/v/mac-mini/aa/images/overview/contrast/icon_apple_intelligence__bsijqtye8n1e_large.png" alt="Apple Intelligence">
+                        <p>Apple Intelligence</p>
+                    </div>
+                </div>
+
+                <div class="spec-row">
+                    <div class="spec-col-left">
+                        <h2>8 cổng</h2>
+                        <p>3x Thunderbolt 4 hoặc 3x Thunderbolt 5, 2x USB-C, HDMI, Gigabit Ethernet, jack cắm tai nghe</p>
+                    </div>
+                    <div class="spec-col-right">
+                        <p class="sub-label">Lên đến</p>
+                        <h2>6 cổng</h2>
+                        <p>2x Thunderbolt / USB 4 hoặc 4x Thunderbolt 4, Gigabit Ethernet, jack cắm tai nghe</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="btn-compare">
+            <span>So sánh tất cả các phiên bản Mac</span>
+            <div class="btn-arrow">›</div>
+        </div>
+    </div>
+    <div class="wrapper-limit-box29">
+        <div class="box29 wow animate__animated animate__fadeInUp">
+        <h1>Mac mini và môi trường.</h1>
+        <p>Tìm hiểu thêm về Báo Cáo Tác Động Môi Trường Của Sản Phẩm của chúng tôi (PDF)</p>
+    </div>
+    <div class="box29-cards wow animate__animated animate__fadeInUp">
+        <div class="env-card">
+            <img class="env-icon" src="https://www.apple.com/v/mac-mini/aa/images/overview/decarbonize/recycle__ej47tl0v9l26_large.png" alt="Recycle">
+            <p class="card-text">
+                Được chế tạo từ <span class="highlight purple">50% vật liệu tái chế</span> tính theo trọng lượng.
+            </p>
+            <div class="btn-plus">
+                <span>+</span>
+            </div>
+        </div>
+
+        <div class="env-card">
+            <img class="env-icon" src="https://www.apple.com/v/mac-mini/aa/images/overview/decarbonize/bolt__isot8w4g80uq_large.png" alt="Bolt">
+            <p class="card-text">
+                Được sản xuất với <span class="highlight orange">100% điện tái tạo.</span>
+            </p>
+            <div class="btn-plus">
+                <span>+</span>
+            </div>
+        </div>
+
+        <div class="env-card">
+            <img class="env-icon" src="https://www.apple.com/v/mac-mini/aa/images/overview/decarbonize/box__co6jft76w2z6_large.png" alt="Box">
+            <p class="card-text">
+                Vận chuyển bằng bao bì nhỏ gọn để <span class="highlight cyan">tăng thêm 90% số lượng thiết bị</span> trong mỗi chuyến hàng.
+            </p>
+            <div class="btn-plus">
+                <span>+</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="env-nav-buttons">
+        <button class="nav-btn prev" disabled>‹</button>
+        <button class="nav-btn next">›</button>
+    </div>
+    </div>
+
+    <div class="box30-values">
+        <h2 class="values-title wow animate__animated animate__fadeInUp">Những giá trị của chúng tôi giúp mở đường dẫn lối.</h2>
+
+        <div class="values-grid">
+            
+            <div class="value-card">
+                <div class="card-content-top">
+                    <img class="value-icon" src="https://www.apple.com/v/mac-mini/aa/images/overview/values-router/icon_carbon_neutral__e8zrjvl4dn2a_large.png" alt="Môi trường">
+                    <h3>Một kế hoạch đột<br> phá<br> như các sản phẩm của Apple.</h3>
+                    <p>Chúng tôi cam kết đưa lượng phát thải ròng về mức 0 vào năm 2030 trên toàn bộ dấu chân carbon của Apple.</p>
+                </div>
+                <a href="#" class="value-link">Tìm hiểu thêm về môi trường ›</a>
+            </div>
+
+            <div class="value-card">
+                <div class="card-content-top">
+                    <img class="value-icon" src="https://www.apple.com/v/mac-mini/aa/images/overview/values-router/icon_privacy__cyz26k461p2e_large.png" alt="Quyền riêng tư">
+                    <h3>Quyền riêng tư<br> trên hết.<br> Vì đó là Apple.</h3>
+                    <p>Quyền riêng tư là quyền cơ bản của con người. Mọi sản phẩm và dịch vụ đều được thiết kế để giúp dữ liệu của bạn an toàn và bảo mật.</p>
+                </div>
+                <a href="#" class="value-link">Tìm hiểu thêm về quyền riêng tư ›</a>
+            </div>
+
+            <div class="value-card">
+                <div class="card-content-top">
+                    <img class="value-icon" src="https://www.apple.com/v/mac-mini/aa/images/overview/values-router/icon_accessibility__dwqs2brmc7yq_large.png" alt="Trợ năng">
+                    <h3>Sáng tạo với trợ năng được mặc định trong thiết kế.</h3>
+                    <p>Các sản phẩm và dịch vụ của chúng tôi được thiết kế cho mọi người, tích hợp nhiều tính năng để giúp bạn làm mọi việc bạn yêu thích, theo cách của bạn.</p>
+                </div>
+                <a href="#" class="value-link">Tìm hiểu thêm về trợ năng ›</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="env-nav-button">
+        <button class="nav-btn prev" disabled>‹</button>
+        <button class="nav-btn next">›</button>
+    </div>
+
+    <div class="mac">
+        <h1 class="brand wow animate__animated animate__fadeInUp">Mac</h1>
+
+        <div class="grid wow animate__animated animate__fadeInUp">
+            
+            <div class="directory">
+                <h3 class="top">Khám Phá Mac</h3>
+                <ul class="large">
+                    <li>Khám Phá Tất Cả Mac</li>
+                    <li>MacBook Neo</li>
+                    <li>MacBook Air</li>
+                    <li>MacBook Pro</li>
+                    <li>iMac</li>
+                    <li>Mac mini</li>
+                    <li>Mac Studio</li>
+                    <li>Màn Hình</li>
+                </ul>
+                
+                <ul class="link-small" style="margin-bottom: 180px;">
+                    <li>So Sánh Mac</li>
+                    <li>Chuyển Từ PC Sang Mac</li>
+                </ul>
+            </div>
+
+            <div class="directory">
+                <h3 class="top">Mua Mac</h3>
+                <ul class="normal">
+                    <li>Mua Mac</li>
+                    <li>Phụ Kiện Mac</li>
+                    <li>Apple Trade In</li>
+                    <li>Tài Chính</li>
+                </ul>
+            </div>
+
+            <div class="directory">
+                <h3 class="top">Tìm Hiểu Thêm Về Mac</h3>
+                <ul class="normal">
+                    <li>Hỗ Trợ Mac</li>
+                    <li>AppleCare</li>
+                    <li>Bản Xem Trước macOS 27</li>
+                    <li>Apple Intelligence</li>
+                    <li>Các Ứng Dụng Của Apple</li>
+                    <li>Tuyệt vời hơn với iPhone</li>
+                    <li>iCloud+</li>
+                    <li>Mac Cho Doanh Nghiệp</li>
+                    <li>Giáo Dục</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="footer">
+            <div class="mac-legal-notes">
+        <ul>
+            <li>
+                <span class="note-symbol">Δ</span> 
+                Áp dụng cho sinh viên hoặc tân sinh viên đại học và cha mẹ của họ, cũng như giảng viên, nhân viên và giáo viên dạy tại nhà ở tất cả các cấp lớp. Xem <a href="#">Điều Khoản</a> để biết thêm thông tin.
+            </li>
+            <li>
+                <span class="note-symbol">ΔΔ</span> 
+                Giá, các xác nhận và tính khả dụng của các tính năng áp dụng cho Hoa Kỳ và có thể thay đổi tùy theo khu vực. Để biết thông tin chi tiết về sản phẩm dành cho khu vực của bạn, vui lòng tham khảo thông tin được cung cấp trên trang web này.
+            </li>
+            <li>
+                <span class="note-symbol">*</span> 
+                Trả góp theo tháng với lãi suất 1,67%, sau khi thanh toán lần đầu 20%. Có thêm tùy chọn thanh toán khi hoàn tất giao dịch. Chương trình Trả Góp Hàng Tháng Với MoMo do đối tác tín dụng cung cấp qua ứng dụng MoMo của Công Ty Cổ Phần Dịch Vụ Di Động Trực Tuyến (“MoMo”) chứ không phải Apple. Chỉ cư dân Việt Nam đủ điều kiện mới có thể mua sản phẩm đủ điều kiện qua chương trình này. Tất cả sản phẩm được mua qua hình thức Trả Góp Hàng Tháng Với MoMo đều cần có tài khoản ví điện tử MoMo và phải được đối tác tín dụng của MoMo phê duyệt. Nếu bạn có câu hỏi về điều kiện tín dụng của mình, vui lòng liên hệ với MoMo để nhận câu trả lời từ đối tác tín dụng của MoMo. Ngoài ra, vui lòng tham khảo ứng dụng MoMo hoặc đối tác tín dụng của MoMo để biết điều kiện, phí và phụ phí.
+            </li>
+            <li>
+                Apple có toàn quyền quyết định sản phẩm nào đủ điều kiện hưởng ưu đãi trả góp vào bất cứ lúc nào. Mọi thay đổi về việc lựa chọn sản phẩm, kỳ hạn trả góp và lãi suất đều sẽ làm thay đổi ưu đãi trả góp hàng tháng. Lãi suất quy định là lãi suất tính theo phần trăm hàng tháng. Áp dụng số tiền mua tối thiểu 3.000.000đ cho sản phẩm đủ điều kiện và cần phải thanh toán trước 20% cho mọi sản phẩm bạn mua. Đơn hàng phải được đặt trên Apple Store Trực Tuyến <a href="#">apple.com/vn</a>. Sản phẩm được mua từ Apple Store Trực Tuyến Dành cho Doanh Nghiệp và Apple Store Trực Tuyến Dành Cho Ngành Giáo Dục không đủ điều kiện hưởng ưu đãi trả góp hàng tháng của MoMo.
+            </li>
+            <li>
+                Tiền sẽ được tính vào tài khoản MoMo của bạn khi sản phẩm được vận chuyển đến bạn. Lãi suất hàng tháng trong ưu đãi trả góp của MoMo được tính dựa trên giá bán lẻ của sản phẩm do Apple cung cấp. Giá được hiển thị đã bao gồm thuế GTGT. Số tiền thanh toán hàng tháng được hiển thị chỉ là con số ước tính. Số tiền thanh toán hàng tháng thực tế của bạn sẽ được hiển thị trong phần báo cáo sử dụng trên ứng dụng MoMo. Khi bạn chọn thanh toán qua hình thức Trả Góp Hàng Tháng Với MoMo, Apple có thể sẽ cần chia sẻ số điện thoại di động của bạn với MoMo để xác minh danh tính và hoàn tất yêu cầu thanh toán của bạn. Apple sẽ luôn xử lý thông tin của bạn theo Chính Sách Quyền Riêng Tư của Apple, có tại <a href="#">apple.com/legal/privacy/vn</a>. Mọi thông tin do MoMo thu thập sẽ tuân thủ chính sách quyền riêng tư của họ.
+            </li>
+            <li>
+                <span class="note-symbol">◊</span> 
+                Gói thanh toán trả góp bằng Thẻ Tín Dụng có thể được áp dụng cho các cá nhân đủ điều kiện có sở hữu thẻ tín dụng phù hợp của ACB, BIDV, HSBC, Sacombank, Shinhanbank, Techcombank, VIB, Vietcombank, VP Bank. Ðể đủ điều kiện sử dụng gói trả góp bằng Thẻ Tín Dụng trong 3, 6, 9 hoặc 12 tháng thì giá trị mua hàng cho một giao dịch của bạn phải trên 3.000.000đ. Tất cả đơn mua hàng áp dụng gói trả góp bằng Thẻ Tín Dụng phải được bên phát hành thẻ tín dụng của bạn phê duyệt. Vui lòng tham khảo trang web của bên phát hành thẻ tín dụng của bạn để biết các thông tin về điều kiện, phí và lệ phí.
+            </li>
+            <li>
+                Ưu đãi trả góp chỉ được áp dụng cho khách hàng cá nhân sử dụng thẻ tín dụng tiêu dùng. Các đơn hàng mua trên Cửa Hàng Giáo Dục, đơn hàng mua từ Cửa Hàng Dành Cho Doanh Nghiệp Nhỏ Và Vừa (SMB) và đơn hàng mua cho tổ chức không đủ điều kiện để áp dụng ưu đãi này. Ðơn mua hàng bằng Thẻ Ghi Nợ không đủ điều kiện để áp dụng ưu đãi này. Nếu đơn hàng trả góp không được bên phát hành thẻ tín dụng của bạn phê duyệt thì chúng tôi sẽ không được thông báo lý do. Vui lòng liên hệ bên phát hành thẻ tín dụng của bạn để biết thêm thông tin. Ưu đãi áp dụng cho giá đã niêm yết hoặc trên tem giá. Khoản phí tài chính sẽ được liệt kê trên sao kê thẻ tín dụng của bạn. Bạn có thể sẽ phải trả một khoản phí xử lý nếu chọn thanh toán qua Trả Góp Bằng Thẻ Tín Dụng. Các khoản phí đi kèm sẽ được thay đổi tùy theo thời hạn áp dụng và tùy vào ngân hàng. Bạn cũng có thể tìm thêm những thông tin khác tại đây.
+            </li>
+            <li>
+                Bạn sẽ được tính phí mua hàng ngay khi đặt hàng và sau đó thanh toán sẽ được chuyển sang hình thức trả góp. Nếu vì bất kỳ lý do gì làm đơn hàng của bạn không được chuyển sang hình thức trả góp, vui lòng liên hệ trực tiếp với ngân hàng phát hành thẻ tín dụng của bạn để được giải đáp thắc mắc và hỗ trợ. Apple không chịu trách nhiệm đối với quy trình chuyển đổi thanh toán trả góp hay được thông báo về lý do tại sao quy trình chuyển đổi này lại không thành công.
+            </li>
+        </ul>
+        <ol class="mac-legal-ol">
+        <li>
+            Apple Intelligence khả dụng ở phiên bản beta. Một số tính năng không khả dụng ở một số khu vực hoặc ngôn ngữ. Để biết tính năng và ngôn ngữ khả dụng cũng như yêu cầu hệ thống, hãy truy cập <a href="#">support.apple.com/vi-vn/121115</a>.
+        </li>
+        <li>
+            Thử nghiệm do Apple thực hiện vào tháng 9 và tháng 10 năm 2024 sử dụng hệ thống Mac mini phiên bản tiền sản xuất cấu hình với Apple M4, CPU 10 lõi, GPU 10 lõi, RAM 16GB và SSD 256GB, cũng như hệ thống PC Intel Core i7 phiên bản sản xuất cấu hình với đồ họa Intel UHD Graphics 770, RAM 16GB, SSD 512GB, và phiên bản Windows 11 Home mới nhất có sẵn tại thời điểm thử nghiệm...
+        </li>
+        <li>
+            Chúng tôi đã so sánh lượng nhôm cần có để sản xuất phần vỏ của Mac mini (2024) với Mac mini (2023).
+        </li>
+        <li>
+            Trọng lượng khác nhau tùy theo cấu hình và quy trình sản xuất.
+        </li>
+        <li>
+            Hàm lượng tái chế hoặc có thể tái tạo của sản phẩm là khối lượng vật liệu tái chế được chứng nhận so với khối lượng tổng thể của thiết bị, không bao gồm bao bì đóng gói hoặc phụ kiện trong hộp.
+        </li>
+        <li>
+            Lượng điện dùng trong hoạt động sản xuất Mac mini đến từ các nguồn điện tái tạo, có sự kết hợp giữa nhà cung cấp với các dự án năng lượng sạch của Apple. Điện tái tạo đề cập đến các nguồn năng lượng không có nhiên liệu hóa thạch, như điện gió, điện mặt trời và các dự án thủy điện có tác động thấp.
+        </li>
+        <li>
+            50% trọng lượng của Mac mini được vận chuyển bằng các phương thức phi hàng không, như vận tải đường biển, từ nhà máy tới điểm đến tiếp theo.
+        </li>
+        <li>
+            Thử nghiệm do Apple thực hiện vào tháng 10 năm 2024 sử dụng hệ thống vận chuyển mang tính cạnh tranh và các chỉ số tiêu chuẩn chọn lọc trong ngành.
+        </li>
+        <li>
+            Tốc độ phụ thuộc vào thông lượng lý thuyết và có thể thay đổi.
+        </li>
+        <li>
+            Khả dụng trên máy tính Mac với Apple silicon và máy tính Mac trang bị Intel với Chip Bảo Mật T2. Yêu cầu iPhone và Mac được đăng nhập vào cùng một Tài Khoản Apple bằng phương thức xác thực hai yếu tố, iPhone và Mac ở gần nhau và bật Bluetooth và Wi-Fi, đồng thời máy Mac đang không dùng AirPlay hoặc Sidecar. Một số tính năng iPhone (ví dụ như camera và micrô) không tương thích với Phản Chiếu iPhone.
+        </li>
+        <li>
+            Dịch vụ thương mại được cung cấp bởi các đối tác trao đổi của Apple. Báo giá giá trị trao đổi chỉ mang tính ước tính và giá trị thực tế có thể thấp hơn ước tính. Giá trị đổi cũ lấy mới sẽ khác nhau tùy theo tình trạng, năm và cấu hình của thiết bị đủ điều kiện đổi của bạn. Không phải tất cả các thiết bị đều đủ điều kiện nhận điểm tín dụng. Bạn phải ít nhất ở độ tuổi thành niên để đủ điều kiện giao dịch tín dụng. Giá trị đổi cũ lấy mới có thể sẽ được áp dụng cho thiết bị đủ điều kiện mới bạn mua. Ước tính giá trị thực tế được dựa trên việc có nhận được thiết bị đủ điều kiện khớp với thông tin bạn đã mô tả hay không. Thuế giá trị gia tăng (GTGT) có thể sẽ được tính trên toàn bộ giá trị của thiết bị mới bạn mua. Bạn phải xuất trình giấy tờ tùy thân hợp lệ (luật địa phương có thể yêu cầu lưu thông tin này). Các đối tác trao đổi của Apple có quyền từ chối, hủy bỏ hoặc giới hạn số lượng của bất kỳ giao dịch đổi cũ lấy mới nào vì bất kỳ lý do gì. Bạn có thể tìm hiểu thêm thông tin từ đối tác đổi cũ lấy mới của Apple về việc đổi cũ lấy mới và đối tác tái chế về việc tái chế các thiết bị đủ điều kiện. Các hạn chế và giới hạn có thể được áp dụng. Có thể sẽ áp dụng Điều khoản và giới hạn về việc tái chế thiết bị đủ điều kiện.
+        </li>
+        <li>
+            Kích thước thật của màn hình theo đường chéo là 23,5 inch.
+        </li>
+    </ol>
+    <ul>
+        <li>Một số tính năng, ứng dụng và dịch vụ chỉ khả dụng ở một số khu vực hoặc ngôn ngữ.</li>
+    </ul>
+</div>
+
+   <div class="apple-main-footer">
+        <div class="footer-breadcrumb">
+            <span><img src="https://www.apple.com/ac/globalfooter/8/vi_VN/assets/ac-footer/breadcrumbs/apple/icon_large.svg" style="margin-bottom: 5px;"></span> ‹ <span>Mac</span> ‹ <span>Mac mini</span>
+        </div>
+
+        <div class="footer-links-grid">
+            <div class="footer-col">
+                <h4 class="col-head">Mua Sắm Và Tìm Hiểu</h4>
+                <ul>
+                    <li>Cửa Hàng</li><li>Mac</li><li>iPad</li><li>iPhone</li><li>Watch</li>
+                    <li>AirPods</li><li>TV & Nhà</li><li>AirTag</li><li>Phụ Kiện</li><li>Thẻ Quà Tặng</li>
+                </ul>
+                <h4 class="col-head" style="margin-top: 24px;">Ví Apple</h4>
+                <ul>
+                    <li>Ví</li><li>Apple Pay</li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="col-head">Tài Khoản</h4>
+                <ul>
+                        <li>Quản Lý Tài Khoản Apple Của Bạn</li>
+                        <li>Tài Khoản Apple Store</li>
+                        <li>iCloud.com</li>
+                    </ul>
+                    <h4 class="col-head" style="margin-top: 24px;">Giải Trí</h4>
+                    <ul>
+                        <li>Apple One</li><li>Apple TV</li><li>Apple Music</li><li>Apple Arcade</li>
+                        <li>Apple Fitness+</li><li>Apple Podcasts</li><li>Apple Books</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="col-head">Apple Store</h4>
+                    <ul>
+                        <li>Ứng Dụng Apple Store</li><li>Apple Trade In</li><li>Tài Chính</li>
+                        <li>Tình Trạng Đơn Hàng</li><li>Hỗ Trợ Mua Hàng</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="col-head">Dành Cho Doanh Nghiệp</h4>
+                    <ul>
+                        <li>Apple Và Doanh Nghiệp</li><li>Mua Hàng Cho Doanh Nghiệp</li>
+                    </ul>
+                    <h4 class="col-head" style="margin-top: 24px;">Cho Giáo Dục</h4>
+                    <ul>
+                        <li>Apple Và Giáo Dục</li><li>Mua Hàng Cho Bậc Đại Học</li>
+                    </ul>
+                    <h4 class="col-head" style="margin-top: 24px;">Cho Chăm Sóc Sức Khỏe</h4>
+                    <ul>
+                        <li>Apple và Chăm Sóc Sức Khỏe</li>
+                    </ul>
+                    <h4 class="col-head" style="margin-top: 24px;">Cho Chính Phủ</h4>
+                    <ul>
+                        <li>Apple và Chính Phủ</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="col-head">Giá Trị Cốt Lõi Của Apple</h4>
+                    <ul>
+                        <li>Trợ Năng</li><li>Môi Trường</li><li>Quyền Riêng Tư</li><li>Đổi Mới Chuỗi Cung Ứng</li>
+                    </ul>
+                    <h4 class="col-head" style="margin-top: 24px;">Về Apple</h4>
+                    <ul>
+                        <li>Newsroom</li><li>Lãnh Đạo Của Apple</li><li>Nhà Đầu Tư</li>
+                        <li>Đạo Đức & Quy Tắc</li><li>Sự Kiện</li><li>Liên Hệ Apple</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-contact">
+                Xem thêm cách để mua hàng: <a href="#">Tìm cửa hàng bán lẻ</a> gần bạn. Hoặc gọi <span class="phone">1800 1192</span>.
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>Bản quyền © 2026 Apple Inc. Bảo lưu mọi quyền.</p>
+                    <p>Việt Nam</p>
+                </div>
+                <div class="legal-links">
+                    <a href="#">Chính Sách Quyền Riêng Tư</a>
+                    <a href="#">Điều Khoản Sử Dụng</a>
+                    <a href="#">Bán Hàng Và Hoàn Tiền</a>
+                    <a href="#">Pháp Lý</a>
+                    <a href="#">Bản Đồ Trang Web</a>
+                </div>
+
+            </div>
+    </div>
+    </div>
+  
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+    <script>
+    
+        $(document).ready(function(){
+            $('.slide').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                arrows: true
+            });
+
+            $('.container').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                arrows: true
+            });
+
+            $('.box12-slide').slick({
+                centerMode: true,
+                centerPadding: '300px',
+                slidesToShow: 1,
+                dots: false,
+                arrows: true,
+                infinite: true,
+                speed: 500
+            });
+
+            $('.box26-slide').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                dots: false,
+                arrows: true,
+                infinite: false,
+                speed: 500
+            });
+
+        
+            wow = new WOW({
+                boxClass:     'wow',
+                animateClass: 'animate__animated',
+                offset:       0,
+                mobile:       true,
+                live:         true
+            });
+            wow.init();
+        });
+
+
+        window.addEventListener('scroll', function() {
+            let subNavbar = document.querySelector('.sub-navbar');
+            let box2Target = document.querySelector('.box2'); 
+
+            if (subNavbar && box2Target) {
+                let triggerTop = box2Target.offsetTop;
+                if (window.scrollY >= triggerTop - 20) {
+                    subNavbar.classList.add('sticky');
+                } else {
+                    subNavbar.classList.remove('sticky');
+                }
+            }
+        });
+
+
+        window.addEventListener('scroll', function() {
+            let materialBtn = document.querySelector('.btn-material-floating');
+            let box4Section = document.querySelector('.box4');   
+            let box10Section = document.querySelector('.box10'); 
+
+            if (materialBtn && box4Section && box10Section) {
+                let startPoint = box4Section.offsetTop;
+                let endPoint = box10Section.offsetTop;
+                let currentScroll = window.scrollY;
+
+    
+                if (currentScroll >= startPoint - 250 && currentScroll < endPoint - 100) {
+                    materialBtn.classList.add('show');
+                } else {
+                    materialBtn.classList.remove('show');
+                }
+            }
+        });
+        window.addEventListener('scroll', function() {
+            let chipBtn = document.querySelector('.btn-chip-floating');
+            let box11Section = document.querySelector('.box11');
+            let box15Section = document.querySelector('.box15');
+
+            if (chipBtn && box11Section && box15Section) {
+                let pointBox11 = box11Section.offsetTop;
+                let pointBox15 = box15Section.offsetTop;
+                let currentScroll = window.scrollY;
+
+                if (currentScroll >= pointBox11 - 100 && currentScroll <= pointBox15 - 100) {
+                    chipBtn.classList.add('show');
+                } else {
+                    chipBtn.classList.remove('show');
+                }
+            }
+        });
+
+       
+        window.addEventListener('scroll', function() {
+            let btnCompare = document.querySelector('.btn-compare');
+            let box28Wrap = document.querySelector('.box28-wrap');
+
+            if (btnCompare && box28Wrap) {
+                let dinhCuaKhoid = box28Wrap.offsetTop; 
+                if (window.scrollY > dinhCuaKhoid - window.innerHeight + 300) {
+                    btnCompare.classList.add('show');
+                } else {
+                    btnCompare.classList.remove('show');
+                }
+            }
+        });
+
+        let nutTabsApple = document.querySelectorAll('.tab');
+        let cacKhoiAnh = document.querySelectorAll('.tab-img-content');
+        let cacKhoiChu = document.querySelectorAll('.tab-text-content');
+
+        nutTabsApple.forEach(function(nutBấm) {
+            nutBấm.addEventListener('click', function() {
+          
+                document.querySelector('.tab.active').classList.remove('active');
+                this.classList.add('active');
+
+              
+                let soThuTu = this.getAttribute('data-click-index');
+
+               
+                document.querySelector('.tab-img-content.active').classList.remove('active');
+                cacKhoiAnh.forEach(function(khoiAnh) {
+                    if (khoiAnh.getAttribute('data-index') === soThuTu) {
+                        khoiAnh.classList.add('active');
+                    }
+                });
+
+                document.querySelector('.tab-text-content.active').classList.remove('active');
+                cacKhoiChu.forEach(function(khoiChu) {
+                    if (khoiChu.getAttribute('data-index') === soThuTu) {
+                        khoiChu.classList.add('active');
+                    }
+                });
+            });
+        });
+
+       
+        let nutBấmIphoneTabs = document.querySelectorAll('.tab-bar [data-click-target]');
+        let danhSachAnhIphone = document.querySelectorAll('.iphone-img-pane');
+        let danhSachChuIphone = document.querySelectorAll('.iphone-text-pane');
+
+        nutBấmIphoneTabs.forEach(function(nutHienTai) {
+            nutHienTai.addEventListener('click', function() {
+          
+                let thanhChaGanNhat = this.parentElement;
+                thanhChaGanNhat.querySelector('.tab.active').classList.remove('active');
+                this.classList.add('active');
+
+             
+                let chiSoMoc = this.getAttribute('data-click-target');
+
+             
+                thanhChaGanNhat.parentElement.querySelector('.iphone-img-pane.active').classList.remove('active');
+                danhSachAnhIphone.forEach(function(khoiAnh) {
+                    if (khoiAnh.getAttribute('data-content-index') === chiSoMoc) {
+                        khoiAnh.classList.add('active');
+                    }
+                });
+
+              
+                thanhChaGanNhat.parentElement.querySelector('.iphone-text-pane.active').classList.remove('active');
+                danhSachChuIphone.forEach(function(khoiChu) {
+                    if (khoiChu.getAttribute('data-content-index') === chiSoMoc) {
+                        khoiChu.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+    
+
+        
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+    
+        
